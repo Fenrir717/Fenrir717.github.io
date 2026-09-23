@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+test*.py
+generate*.py
+test*.png
+test*.jpg
+qa-*.jpg
+*.log

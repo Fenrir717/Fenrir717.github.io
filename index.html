@@ -1,0 +1,3204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Nur Haqiqi — IT Engineer · AI Security · Automation & Infrastructure</title>
+  <meta name="description" content="Portfolio of Muhammad Nur Haqiqi — IT Engineer, AI Security Engineer, Automation & Infrastructure Engineer. Building intelligent, secure, production-ready systems.">
+
+  <!-- Favicon Suite -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='borderGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff3b1d' stop-opacity='0.9'/%3E%3Cstop offset='100%25' stop-color='%23ff3b1d' stop-opacity='0.25'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2308080a'/%3E%3Crect x='1.5' y='1.5' width='61' height='61' rx='14.5' fill='none' stroke='url(%23borderGrad)' stroke-width='2.5'/%3E%3Ccircle cx='50' cy='14' r='4' fill='%23ff3b1d'/%3E%3Ctext x='30' y='44' font-family='%27Anton%27, %27Impact%27, sans-serif' font-size='30' font-weight='900' fill='%23f3f1ea' text-anchor='middle' letter-spacing='-0.5'%3EHQ%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Google Fonts: Anton (Display) & Onest (Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CDN Import Map for Lenis -->
+  <script type="importmap">
+  {
+    "imports": {
+      "lenis": "https://cdn.jsdelivr.net/npm/lenis@1.3.19/dist/lenis.mjs"
+    }
+  }
+  </script>
+
+  <style>
+    /* CSS Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+    ul, ol {
+      list-style: none;
+    }
+    button, a {
+      font-family: inherit;
+      color: inherit;
+      background: none;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Design Tokens */
+    :root {
+      --font-display: "Anton", sans-serif;
+      --font-sans: "Onest", sans-serif;
+
+      --background: #08080a;
+      --foreground: #f3f1ea;
+      --surface: #111114;
+      --surface-2: #17171b;
+      --muted: #807f78;
+      --line: rgba(243, 241, 234, 0.1);
+      --line-strong: rgba(243, 241, 234, 0.22);
+      --accent: #ff3b1d;
+      --accent-2: #ff6a3d;
+
+      --gutter: 2.5rem;
+      --section: 9rem;
+
+      /* Type Scale (rem) */
+      --hero-size: 28rem;
+      --hero-lh: 0.78;
+      --mega-size: 13rem;
+      --mega-lh: 0.86;
+      --display-size: 7.5rem;
+      --display-lh: 0.9;
+      --h1-size: 5rem;
+      --h1-lh: 0.95;
+      --h2-size: 3.25rem;
+      --h2-lh: 1;
+      --h3-size: 1.75rem;
+      --h3-lh: 1.15;
+      --lead-size: 1.375rem;
+      --lead-lh: 1.45;
+      --body-size: 1.0625rem;
+      --body-lh: 1.6;
+      --eyebrow-size: 0.8125rem;
+      --eyebrow-lh: 1.2;
+    }
+
+    /* Rem-based adaptive grid */
+    html {
+      font-size: 16px;
+      background: var(--background);
+      scroll-behavior: auto !important; /* Managed by Lenis */
+    }
+    @media (max-width: 1920px) { html { font-size: 0.833333vw; } }
+    @media (max-width: 1440px) { html { font-size: 1.111111vw; } }
+    @media (max-width: 1024px) { html { font-size: 1.5625vw;   } }
+    @media (max-width: 640px) {
+      html { font-size: 4.444444vw; }
+      :root { --gutter: 16px; --section: 6rem; }
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--background);
+    }
+
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    /* Common Eyebrow Component */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: var(--eyebrow-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+    .eyebrow-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 9999px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* Reveal System Base Classes */
+    .line-wrap {
+      display: block;
+      overflow: hidden;
+    }
+    .line-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      opacity: 0;
+      transition: transform 850ms cubic-bezier(0.16, 1, 0.3, 1), opacity 850ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .in-view .line-inner,
+    .revealed .line-inner {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 560ms cubic-bezier(0.16, 1, 0.3, 1), transform 560ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .in-view.fade-up,
+    .in-view .fade-up,
+    .revealed.fade-up {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* 1. Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: var(--background);
+      padding: var(--gutter);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      will-change: transform;
+      transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    @media (min-width: 640px) {
+      #preloader {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+    }
+    .preloader-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -10;
+      background: var(--background);
+    }
+    .preloader-label {
+      font-family: var(--font-display);
+      font-size: var(--h3-size);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transition: opacity 300ms ease;
+    }
+    .preloader-counter {
+      font-family: var(--font-display);
+      font-size: var(--display-size);
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      color: var(--foreground);
+      transition: opacity 300ms ease;
+    }
+    .preloader-counter span {
+      color: var(--accent);
+    }
+
+    /* 2. SiteNav */
+    #site-header {
+      position: fixed;
+      top: 0;
+      inset-inline: 0;
+      z-index: 50;
+      pointer-events: none;
+    }
+    .nav-container {
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem var(--gutter);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(8, 8, 10, 0.5);
+      border-bottom: 1px solid rgba(243, 241, 234, 0.04);
+      transition: background 300ms ease, border-color 300ms ease;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .logo-badge {
+      display: grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--line-strong);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      background: rgba(17, 17, 20, 0.6);
+      transition: border-color 300ms ease, color 300ms ease, transform 300ms ease;
+    }
+    .nav-logo:hover .logo-badge {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.05);
+    }
+    .logo-text {
+      font-size: var(--eyebrow-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      display: none;
+    }
+    @media (min-width: 640px) {
+      .logo-text { display: block; }
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+    }
+    .nav-link {
+      position: relative;
+      font-size: var(--eyebrow-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      padding: 0.35rem 0;
+      transition: color 300ms ease;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -0.25rem;
+      left: 0;
+      height: 1px;
+      width: 0;
+      background: var(--accent);
+      transition: width 340ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .nav-link:hover {
+      color: var(--foreground);
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Burger button (mobile) */
+    .burger-btn {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0.375rem;
+      width: 2.5rem;
+      height: 2.5rem;
+      cursor: pointer;
+      z-index: 60;
+    }
+    @media (min-width: 768px) {
+      .burger-btn { display: none; }
+    }
+    .burger-bar {
+      width: 1.5rem;
+      height: 0.125rem;
+      background: var(--foreground);
+      transition: transform 300ms ease, opacity 300ms ease;
+    }
+    .burger-btn.open .burger-bar:nth-child(1) {
+      transform: translateY(0.5rem) rotate(45deg);
+    }
+    .burger-btn.open .burger-bar:nth-child(2) {
+      opacity: 0;
+    }
+    .burger-btn.open .burger-bar:nth-child(3) {
+      transform: translateY(-0.5rem) rotate(-45deg);
+    }
+
+    /* Mobile menu panel */
+    #mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: var(--background);
+      padding-inline: var(--gutter);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    #mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu-item {
+      overflow: hidden;
+    }
+    .mobile-link {
+      display: block;
+      font-family: var(--font-display);
+      font-size: var(--h2-size);
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transform: translateY(48px);
+      opacity: 0;
+      transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 420ms ease, color 300ms ease;
+    }
+    #mobile-menu.open .mobile-link {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .mobile-link:hover {
+      color: var(--accent);
+    }
+
+    /* Main Container */
+    main {
+      position: relative;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* 3. Hero Section */
+    #top {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100svh;
+      overflow: hidden;
+      background: var(--background);
+    }
+    .hero-top-row {
+      position: relative;
+      z-index: 30;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 7rem var(--gutter) 0;
+    }
+    @media (min-width: 640px) {
+      .hero-top-row {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding-top: 8rem;
+      }
+    }
+    .hero-roles {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      font-size: var(--h3-size);
+    }
+    @media (min-width: 640px) {
+      .hero-roles {
+        font-size: var(--h2-size);
+      }
+    }
+    .hero-roles .role-line {
+      display: block;
+      overflow: hidden;
+    }
+    .hero-roles .role-inner {
+      display: inline-block;
+      transform: translateY(110%);
+      opacity: 0;
+      transition: transform 760ms cubic-bezier(0.16, 1, 0.3, 1), opacity 760ms ease;
+    }
+
+    .hero-desc {
+      max-width: 26rem;
+      font-size: var(--body-size);
+      line-height: var(--body-lh);
+      color: var(--muted);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 520ms cubic-bezier(0.16, 1, 0.3, 1), transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (min-width: 640px) {
+      .hero-desc {
+        text-align: right;
+      }
+    }
+
+    /* Portrait Wrapper */
+    .hero-portrait-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 86vh;
+      width: 80vw;
+      z-index: 20;
+      pointer-events: none;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    @media (min-width: 640px) {
+      .hero-portrait-wrap { width: 48vw; }
+    }
+    @media (min-width: 1024px) {
+      .hero-portrait-wrap { width: 36vw; }
+    }
+
+    .hero-portrait-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      pointer-events: auto;
+      overflow: visible;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.18));
+    }
+    .hero-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      transition: filter 300ms ease;
+    }
+
+    /* Gradient base melting the portrait base into the page */
+    .hero-gradient-base {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 20;
+      height: 26vh;
+      background: linear-gradient(to bottom, transparent, #08080a 90%);
+      pointer-events: none;
+    }
+
+    /* Giant Name H1 behind portrait */
+    .hero-giant-name {
+      position: absolute;
+      inset-inline: 0;
+      bottom: 0;
+      transform: translateY(6%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: var(--hero-lh);
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      font-size: var(--mega-size);
+      pointer-events: none;
+      user-select: none;
+    }
+    @media (min-width: 640px) {
+      .hero-giant-name {
+        font-size: var(--hero-size);
+      }
+    }
+    .name-line {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .letter-span {
+      display: inline-block;
+      transform: translateY(100%);
+      opacity: 0;
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+    }
+
+    /* Scroll Cue */
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 2rem;
+      left: var(--gutter);
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity 600ms ease;
+    }
+    .scroll-cue-bar {
+      width: 2.5rem;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    /* 4. Marquee Section */
+    .marquee-section {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2rem 0;
+      background: var(--surface);
+      position: relative;
+      z-index: 25;
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      flex-wrap: nowrap;
+      animation: marqueeLoop 22s linear infinite;
+    }
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeLoop {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-group {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: var(--h2-size);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+    .marquee-dot {
+      margin-inline: 2rem;
+      width: 0.625rem;
+      height: 0.625rem;
+      border-radius: 9999px;
+      background: var(--accent);
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* 5. Story Section */
+    #story {
+      padding: var(--section) var(--gutter);
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .story-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gutter);
+      }
+    }
+    .story-left {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .story-left {
+        grid-column: span 6;
+      }
+    }
+    .story-heading {
+      margin-top: 1.5rem;
+      max-width: 16ch;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      font-size: var(--h2-size);
+    }
+    @media (min-width: 640px) {
+      .story-heading {
+        font-size: var(--h1-size);
+      }
+    }
+    .story-body {
+      margin-top: 2rem;
+      max-width: 46ch;
+      font-size: var(--lead-size);
+      line-height: var(--lead-lh);
+      color: var(--muted);
+    }
+
+    .story-right {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .story-right {
+        grid-column: span 6;
+        padding-top: 0.5rem;
+      }
+    }
+    .principles-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .principle-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding: 2rem 0;
+      transition: transform 300ms ease, border-color 300ms ease;
+    }
+    .principle-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+    .principle-item:hover {
+      border-color: var(--line-strong);
+      transform: translateX(6px);
+    }
+    .principle-num {
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      color: var(--accent);
+      line-height: 1.15;
+    }
+    .principle-title {
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+    .principle-desc {
+      margin-top: 0.75rem;
+      max-width: 44ch;
+      font-size: var(--body-size);
+      line-height: var(--body-lh);
+      color: var(--muted);
+    }
+
+    /* 6. Ventures Section */
+    #ventures {
+      padding: var(--section) var(--gutter);
+    }
+    .ventures-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .ventures-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+    }
+    .ventures-heading {
+      margin-top: 1.5rem;
+      max-width: 14ch;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      font-size: var(--h2-size);
+    }
+    @media (min-width: 640px) {
+      .ventures-heading {
+        font-size: var(--h1-size);
+      }
+    }
+    .ventures-count {
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+
+    .ventures-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      column-gap: var(--gutter);
+      row-gap: 4rem;
+    }
+    @media (min-width: 768px) {
+      .ventures-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .venture-card:nth-child(even) {
+        margin-top: 6rem;
+      }
+    }
+
+    /* LiquidImage Component (Full Treatment) */
+    .liquid-figure {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      width: 100%;
+      border-radius: 0.125rem;
+      background: var(--surface);
+      isolation: isolate;
+      cursor: pointer;
+    }
+    .liquid-figure.bare {
+      background: none;
+      border-radius: 0;
+      aspect-ratio: unset;
+    }
+
+    .liquid-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+    .liquid-figure:hover .liquid-img {
+      transform: scale(1.04);
+    }
+
+    /* Grayscale veil */
+    .liquid-veil {
+      position: absolute;
+      inset: 0;
+      background: var(--surface-2);
+      mix-blend-mode: color;
+      opacity: 0.88;
+      pointer-events: none;
+      transition: opacity 380ms ease-out;
+      z-index: 2;
+    }
+    .liquid-figure:hover .liquid-veil {
+      opacity: 0;
+    }
+
+    /* Accent glow sweep */
+    .liquid-glow {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 59, 29, 0.35) 50%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 400ms ease;
+      z-index: 3;
+    }
+    .liquid-figure:hover .liquid-glow {
+      opacity: 1;
+    }
+
+    /* Persistent Radial Vignette */
+    .liquid-vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(120% 120% at 50% 120%, rgba(8, 8, 10, 0.7), transparent 60%);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .venture-meta-row {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .venture-name {
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transition: color 340ms ease-out;
+    }
+    .venture-card:hover .venture-name {
+      color: var(--accent);
+    }
+    .venture-blurb {
+      margin-top: 0.5rem;
+      max-width: 42ch;
+      font-size: var(--body-size);
+      line-height: var(--body-lh);
+      color: var(--muted);
+    }
+    .venture-right {
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .venture-year {
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .venture-outcome {
+      margin-top: 0.5rem;
+      font-size: var(--eyebrow-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+    .venture-cat {
+      margin-top: 0.75rem;
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+
+    /* 7. Impact Section */
+    #impact {
+      padding: var(--section) var(--gutter);
+    }
+    .impact-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .impact-heading {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      font-size: var(--h2-size);
+    }
+
+    .impact-dl {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      border-top: 1px solid var(--line);
+    }
+    @media (min-width: 640px) {
+      .impact-dl {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .impact-dl {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    .impact-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      border-bottom: 1px solid var(--line);
+      padding: 2.5rem 0;
+      transition: background 300ms ease;
+    }
+    @media (min-width: 640px) {
+      .impact-cell:nth-child(even) {
+        border-left: 1px solid var(--line);
+        padding-left: 2rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      .impact-cell {
+        padding: 3rem 0;
+      }
+      .impact-cell:nth-child(even) {
+        border-left: none;
+        padding-left: 0;
+      }
+      .impact-cell:not(:first-child) {
+        border-left: 1px solid var(--line);
+        padding-left: 2rem;
+      }
+    }
+
+    .impact-figure {
+      font-family: var(--font-display);
+      font-size: var(--display-size);
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      transition: color 340ms ease-out, transform 340ms ease-out;
+      cursor: default;
+    }
+    .impact-cell:hover .impact-figure {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+    .impact-label {
+      max-width: 20ch;
+      font-size: var(--body-size);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Verified Credentials & Competitive Honors Showcase */
+    .honors-wrap {
+      margin-top: 4.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 3.5rem;
+    }
+    .honors-topbar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .honors-title {
+      font-family: var(--font-display);
+      font-size: var(--h3-size);
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+    .honors-subtitle {
+      font-size: var(--eyebrow-size);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .honors-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 640px) {
+      .honors-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .honors-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .honor-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0.25rem;
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.5rem;
+      position: relative;
+      transition: border-color 300ms ease, transform 300ms ease, box-shadow 300ms ease;
+    }
+    .honor-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+    }
+    .honor-card-top {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .honor-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+    .honor-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .honor-name {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--foreground);
+    }
+    .honor-org {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+    .honor-card-bottom {
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .honor-meta {
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .honor-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+    .honor-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.18rem 0.45rem;
+      border-radius: 2px;
+      background: var(--surface-2);
+      color: var(--foreground);
+      border: 1px solid var(--line);
+    }
+
+    /* Certificate Badge & Interactive Preview in Honor Cards */
+    .honor-card {
+      cursor: pointer;
+    }
+    .honor-card-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .cert-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.65rem;
+      border-radius: 9999px;
+      background: rgba(255, 59, 29, 0.08);
+      border: 1px solid rgba(255, 59, 29, 0.28);
+      color: var(--accent-2);
+      transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+    .cert-pill-badge:hover,
+    .honor-card:hover .cert-pill-badge {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      box-shadow: 0 0 14px rgba(255, 59, 29, 0.45);
+      transform: translateY(-1px);
+    }
+    .cert-pill-badge svg {
+      transition: transform 220ms ease;
+    }
+    .cert-pill-badge:hover svg,
+    .honor-card:hover .cert-pill-badge svg {
+      transform: translate(1px, -1px);
+    }
+
+    /* Thumbnail badge container */
+    .honor-cert-preview {
+      position: relative;
+      margin: 0.5rem 0 0.25rem 0;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #090a0f;
+      aspect-ratio: 16 / 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 260ms ease, box-shadow 260ms ease;
+    }
+    .honor-card:hover .honor-cert-preview {
+      border-color: rgba(255, 59, 29, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+    .honor-cert-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), filter 350ms ease;
+      filter: brightness(0.88) contrast(1.05);
+    }
+    .honor-card:hover .honor-cert-thumb {
+      transform: scale(1.04);
+      filter: brightness(1) contrast(1.02);
+    }
+    .honor-cert-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(8, 8, 10, 0.85) 0%, rgba(8, 8, 10, 0.2) 60%, transparent 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 0.65rem;
+      opacity: 0.85;
+      transition: opacity 260ms ease;
+    }
+    .honor-card:hover .honor-cert-thumb-overlay {
+      opacity: 1;
+    }
+    .thumb-zoom-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.55rem;
+      border-radius: 3px;
+      background: rgba(14, 15, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--foreground);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Modal / Lightbox Carousel */
+    .cert-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cert-lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cert-lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(14, 18, 26, 0.94) 0%, rgba(5, 5, 8, 0.98) 100%);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+    }
+    .cert-lightbox-container {
+      position: relative;
+      z-index: 2;
+      width: min(94vw, 1200px);
+      height: min(92vh, 880px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.25rem;
+    }
+    .cert-lightbox-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(243, 241, 234, 0.1);
+    }
+    .cert-lightbox-counter {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      color: var(--foreground);
+    }
+    .cert-counter-sep {
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    .cert-counter-total {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .cert-lightbox-badge-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cert-close-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: var(--foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 220ms ease;
+    }
+    .cert-close-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      transform: rotate(90deg) scale(1.05);
+      box-shadow: 0 0 16px rgba(255, 59, 29, 0.5);
+    }
+
+    /* Stage */
+    .cert-stage-wrapper {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 0;
+      gap: 1.25rem;
+    }
+    .cert-nav-btn {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(20, 22, 30, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: var(--foreground);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      transition: all 220ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+    }
+    .cert-nav-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: scale(1.12);
+      box-shadow: 0 0 24px rgba(255, 59, 29, 0.55);
+    }
+    .cert-nav-btn:active {
+      transform: scale(0.96);
+    }
+    .cert-image-frame {
+      position: relative;
+      max-width: calc(100% - 130px);
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: #08090d;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9), 0 0 35px rgba(255, 59, 29, 0.08);
+      user-select: none;
+    }
+    .cert-main-img {
+      max-width: 100%;
+      max-height: calc(92vh - 210px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+      transition: opacity 220ms ease, transform 240ms ease;
+    }
+    .cert-main-img.fade-out {
+      opacity: 0;
+      transform: scale(0.97);
+    }
+
+    /* Footer / Metadata */
+    .cert-lightbox-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid rgba(243, 241, 234, 0.1);
+    }
+    .cert-meta-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .cert-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .cert-modal-title {
+      font-family: var(--font-sans);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--foreground);
+    }
+    .cert-modal-tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 0.18rem 0.55rem;
+      border-radius: 9999px;
+      background: rgba(255, 59, 29, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(255, 59, 29, 0.3);
+    }
+    .cert-modal-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .cert-modal-id {
+      font-size: 0.72rem;
+      font-family: monospace;
+      color: #a0aec0;
+      letter-spacing: 0.03em;
+    }
+    .cert-dots-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cert-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      cursor: pointer;
+      transition: all 220ms ease;
+      padding: 0;
+    }
+    .cert-dot:hover {
+      background: rgba(255, 255, 255, 0.5);
+    }
+    .cert-dot.active {
+      width: 26px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(255, 59, 29, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .cert-lightbox-container {
+        width: 98vw;
+        height: 96vh;
+        padding: 0.75rem;
+      }
+      .cert-stage-wrapper {
+        gap: 0.5rem;
+      }
+      .cert-image-frame {
+        max-width: 100%;
+      }
+      .cert-main-img {
+        max-height: calc(96vh - 240px);
+      }
+      .cert-nav-btn {
+        width: 38px;
+        height: 38px;
+      }
+      .cert-lightbox-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    #voices {
+      padding: var(--section) var(--gutter);
+    }
+    .voices-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .voices-heading {
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      font-size: var(--h2-size);
+    }
+
+    .voices-body-grid {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    @media (min-width: 1024px) {
+      .voices-body-grid {
+        grid-template-columns: repeat(12, 1fr);
+        gap: var(--gutter);
+      }
+    }
+    .voices-selector-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .voices-selector-col {
+        grid-column: span 5;
+      }
+    }
+    .voices-btn {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      gap: 1.25rem;
+      border-top: 1px solid var(--line);
+      padding: 1.75rem 0;
+      text-align: left;
+      position: relative;
+      transition: border-color 300ms ease;
+    }
+    .voices-btn:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+    .voices-btn:hover {
+      border-color: var(--line-strong);
+    }
+    .voice-index {
+      font-size: var(--eyebrow-size);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      transition: color 300ms ease;
+    }
+    .voices-btn.active .voice-index {
+      color: var(--accent);
+    }
+    .voice-meta-block {
+      flex: 1;
+    }
+    .voice-title {
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--muted);
+      transition: color 300ms ease;
+    }
+    .voices-btn.active .voice-title,
+    .voices-btn:hover .voice-title {
+      color: var(--foreground);
+    }
+    .voice-sub {
+      margin-top: 0.25rem;
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .voice-indicator {
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      align-self: center;
+      transition: width 340ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .voices-btn.active .voice-indicator {
+      width: 2.5rem;
+    }
+
+    .voices-featured-col {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .voices-featured-col {
+        grid-column: span 7;
+      }
+    }
+    .voices-panel {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: flex-start;
+    }
+    @media (min-width: 640px) {
+      .voices-panel {
+        grid-template-columns: 1fr auto;
+      }
+    }
+    .voices-quote-wrap {
+      order: 2;
+    }
+    @media (min-width: 640px) {
+      .voices-quote-wrap {
+        order: 1;
+      }
+    }
+    .voices-quote-text {
+      max-width: 30ch;
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 500;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      min-height: 7.5rem;
+    }
+    .word-span {
+      display: inline-block;
+      transform: translateY(18px);
+      opacity: 0;
+      transition: transform 520ms cubic-bezier(0.165, 0.84, 0.44, 1), opacity 520ms ease;
+    }
+    .word-span.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .voices-footer {
+      margin-top: 2rem;
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+    }
+    .voices-portrait-wrap {
+      order: 1;
+      width: 100%;
+    }
+    @media (min-width: 640px) {
+      .voices-portrait-wrap {
+        order: 2;
+        width: 16rem;
+      }
+    }
+    .voice-portrait-fig {
+      aspect-ratio: 4 / 5;
+      width: 100%;
+    }
+
+    /* 9. Contact & Footer */
+    #contact {
+      padding-top: var(--section);
+      padding-inline: var(--gutter);
+      background: var(--background);
+      position: relative;
+    }
+    .contact-heading {
+      margin-top: 1.5rem;
+      max-width: 18ch;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      font-size: var(--h1-size);
+    }
+    @media (min-width: 640px) {
+      .contact-heading {
+        font-size: var(--display-size);
+      }
+    }
+    .contact-desc {
+      margin-top: 2rem;
+      max-width: 44ch;
+      font-size: var(--lead-size);
+      line-height: var(--lead-lh);
+      color: var(--muted);
+    }
+
+    .email-link {
+      margin-top: 3rem;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      font-family: var(--font-sans);
+      font-size: var(--h3-size);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+      word-break: break-all;
+      transition: transform 340ms cubic-bezier(0.16, 1, 0.3, 1), color 340ms ease-out;
+    }
+    @media (min-width: 640px) {
+      .email-link {
+        font-size: var(--h1-size);
+        gap: 1rem;
+      }
+    }
+    .email-link:hover {
+      transform: translateX(14px);
+      color: var(--accent);
+    }
+    .email-arrow {
+      color: var(--accent);
+      font-size: 0.9em;
+      transition: transform 340ms ease;
+    }
+    .email-link:hover .email-arrow {
+      transform: translate(4px, -4px);
+    }
+
+    .footer-bar {
+      margin-top: var(--section);
+      border-top: 1px solid var(--line);
+      padding: 3rem 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    @media (min-width: 1024px) {
+      .footer-bar {
+        grid-template-columns: repeat(12, 1fr);
+      }
+    }
+    .footer-left {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .footer-left {
+        grid-column: span 6;
+      }
+    }
+    .footer-signature {
+      font-family: var(--font-display);
+      font-size: var(--h2-size);
+      text-transform: uppercase;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      color: var(--foreground);
+    }
+    .footer-tagline {
+      margin-top: 1rem;
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+    }
+
+    .footer-mid {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .footer-mid {
+        grid-column: span 3;
+      }
+    }
+    .social-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: var(--body-size);
+      color: var(--muted);
+      transition: color 300ms ease;
+    }
+    .social-rule {
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .social-link:hover {
+      color: var(--foreground);
+    }
+    .social-link:hover .social-rule {
+      width: 1.5rem;
+    }
+
+    .footer-right {
+      grid-column: 1 / -1;
+    }
+    @media (min-width: 1024px) {
+      .footer-right {
+        grid-column: span 3;
+        text-align: right;
+      }
+    }
+    .copyright-text {
+      font-size: var(--eyebrow-size);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      #preloader { display: none !important; }
+      .marquee-track { animation: none !important; }
+      .line-inner, .letter-span, .fade-up, .hero-roles .role-inner, .hero-desc, .hero-scroll-cue, .word-span {
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
+      .liquid-img { filter: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Liquid Displacement Filters -->
+  <svg width="0" height="0" style="position:absolute; visibility:hidden;">
+    <defs>
+      <!-- Hero portrait liquid filter -->
+      <filter id="hero-liquid" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+        <feTurbulence id="hero-turb" type="fractalNoise" baseFrequency="0.009" numOctaves="2" result="noise" />
+        <feDisplacementMap id="hero-disp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+
+      <!-- Venture cards filter -->
+      <filter id="venture-liquid" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+        <feTurbulence id="venture-turb" type="fractalNoise" baseFrequency="0.009" numOctaves="2" result="noise" />
+        <feDisplacementMap id="venture-disp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+
+      <!-- Voice cards filter -->
+      <filter id="voice-liquid" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+        <feTurbulence id="voice-turb" type="fractalNoise" baseFrequency="0.009" numOctaves="2" result="noise" />
+        <feDisplacementMap id="voice-disp" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- 1. Preloader -->
+  <aside id="preloader" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="preloader-bg"></div>
+    <div class="preloader-label">MUHAMMAD NUR HAQIQI</div>
+    <div class="preloader-counter"><span id="preload-val">0</span><span>%</span></div>
+  </aside>
+
+  <!-- 2. SiteNav (Fixed Top) -->
+  <header id="site-header">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="#top" class="nav-logo" aria-label="Home">
+        <div class="logo-badge">HQ</div>
+        <span class="logo-text">Muhammad Nur Haqiqi</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#story" class="nav-link">Story</a></li>
+        <li><a href="#ventures" class="nav-link">Ventures</a></li>
+        <li><a href="#impact" class="nav-link">Impact</a></li>
+        <li><a href="#voices" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <button class="burger-btn" id="burger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+        <span class="burger-bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" aria-hidden="true">
+    <ul style="display:flex; flex-direction:column; align-items:center; gap:1.75rem;">
+      <li class="mobile-menu-item"><a href="#story" class="mobile-link">Story</a></li>
+      <li class="mobile-menu-item"><a href="#ventures" class="mobile-link">Ventures</a></li>
+      <li class="mobile-menu-item"><a href="#impact" class="mobile-link">Impact</a></li>
+      <li class="mobile-menu-item"><a href="#voices" class="mobile-link">Experience</a></li>
+      <li class="mobile-menu-item"><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- 3. Hero Section -->
+    <section id="top" aria-label="Hero">
+      <!-- Top Row -->
+      <div class="hero-top-row">
+        <h2 class="hero-roles" aria-label="IT Engineer, AI Security, Automation, Infrastructure">
+          <span class="role-line"><span class="role-inner">IT Engineer</span></span>
+          <span class="role-line"><span class="role-inner">AI Security</span></span>
+          <span class="role-line"><span class="role-inner">Automation</span></span>
+          <span class="role-line"><span class="role-inner">Infrastructure</span></span>
+        </h2>
+
+        <p class="hero-desc" id="hero-desc-p">
+          I build intelligent systems that turn complex technical workflows into secure, automated, and production-ready platforms. From AI-powered cybersecurity and autonomous pentesting to OSINT intelligence, infrastructure automation, and agentic workflows — I design systems where AI works together with real tools, data, and infrastructure.
+        </p>
+      </div>
+
+      <!-- Cutout Portrait -->
+      <div class="hero-portrait-wrap">
+        <div class="hero-portrait-inner" id="hero-portrait-trigger">
+          <picture>
+            <source srcset="portrait.webp?v=5" type="image/webp">
+            <img src="portrait.png?v=5" alt="Muhammad Nur Haqiqi" class="hero-portrait-img" loading="eager" decoding="async">
+          </picture>
+        </div>
+      </div>
+
+      <!-- Gradient base to melt portrait into background -->
+      <div class="hero-gradient-base"></div>
+
+      <!-- Giant Stacked Name H1 -->
+      <h1 class="hero-giant-name" aria-label="Muhammad Haqiqi">
+        <span class="name-line" id="name-line-1"></span>
+        <span class="name-line" id="name-line-2"></span>
+      </h1>
+
+      <!-- Scroll cue -->
+      <div class="hero-scroll-cue" id="hero-cue">
+        <span class="scroll-cue-bar"></span>
+        <span>Scroll to enter</span>
+      </div>
+    </section>
+
+    <!-- 4. Marquee Section -->
+    <section class="marquee-section" aria-label="Operating principles">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span class="marquee-item">Systems Over Scripts<span class="marquee-dot"></span></span>
+          <span class="marquee-item">2nd Place Digination Fest 2024<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Cisco Network Security Certified<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 1: Intro to Networks<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 2: Switching, Routing &amp; Wireless<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 3: Enterprise Automation<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Amikom English Proficiency (TOEFL: 453)<span class="marquee-dot"></span></span>
+          <span class="marquee-item">AMICTA 2025 CTF Security<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Security By Design<span class="marquee-dot"></span></span>
+          <span class="marquee-item">AI With Real Tools<span class="marquee-dot"></span></span>
+        </div>
+        <div class="marquee-group" aria-hidden="true">
+          <span class="marquee-item">Systems Over Scripts<span class="marquee-dot"></span></span>
+          <span class="marquee-item">2nd Place Digination Fest 2024<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Cisco Network Security Certified<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 1: Intro to Networks<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 2: Switching, Routing &amp; Wireless<span class="marquee-dot"></span></span>
+          <span class="marquee-item">CCNA 3: Enterprise Automation<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Amikom English Proficiency (TOEFL: 453)<span class="marquee-dot"></span></span>
+          <span class="marquee-item">AMICTA 2025 CTF Security<span class="marquee-dot"></span></span>
+          <span class="marquee-item">Security By Design<span class="marquee-dot"></span></span>
+          <span class="marquee-item">AI With Real Tools<span class="marquee-dot"></span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Story Section -->
+    <section id="story" aria-label="The Story & Philosophy">
+      <div class="story-grid">
+        <!-- Left Column -->
+        <div class="story-left trigger-inview">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>The Philosophy</div>
+          <h2 class="story-heading">
+            <span class="line-wrap"><span class="line-inner">“Be conservative</span></span>
+            <span class="line-wrap"><span class="line-inner">in what you do,</span></span>
+            <span class="line-wrap"><span class="line-inner">be liberal in</span></span>
+            <span class="line-wrap"><span class="line-inner">what you accept.”</span></span>
+          </h2>
+          <p class="story-body fade-up">
+            I believe good engineering requires both discipline and openness — being careful with what you build, while remaining open to ideas, feedback, and better ways of solving problems. From hands-on infrastructure troubleshooting to autonomous agentic security engines, the through-line is constant: design systems that operate, scale, and evolve.
+          </p>
+        </div>
+
+        <!-- Right Column: 4 Principles -->
+        <div class="story-right trigger-inview">
+          <ul class="principles-list">
+            <li class="principle-item fade-up" style="transition-delay: 0ms;">
+              <span class="principle-num">01</span>
+              <div>
+                <h3 class="principle-title">Systems Over Scripts</h3>
+                <p class="principle-desc">I design systems that can operate, scale, and evolve — not isolated scripts that only work once.</p>
+              </div>
+            </li>
+
+            <li class="principle-item fade-up" style="transition-delay: 90ms;">
+              <span class="principle-num">02</span>
+              <div>
+                <h3 class="principle-title">AI With Real Tools</h3>
+                <p class="principle-desc">AI should interact with real infrastructure, data, APIs, and security tools — not live inside a chatbot demo.</p>
+              </div>
+            </li>
+
+            <li class="principle-item fade-up" style="transition-delay: 180ms;">
+              <span class="principle-num">03</span>
+              <div>
+                <h3 class="principle-title">Security By Design</h3>
+                <p class="principle-desc">Authentication, authorization, isolation, validation, observability, and evidence belong in the architecture from the beginning.</p>
+              </div>
+            </li>
+
+            <li class="principle-item fade-up" style="transition-delay: 270ms;">
+              <span class="principle-num">04</span>
+              <div>
+                <h3 class="principle-title">Build, Verify, Improve</h3>
+                <p class="principle-desc">Documentation first. Build deliberately. Test continuously. Verify the result before calling it done.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Ventures Section -->
+    <section id="ventures" aria-label="Selected Ventures">
+      <div class="ventures-header trigger-inview">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Selected Ventures</div>
+          <h2 class="ventures-heading">
+            <span class="line-wrap"><span class="line-inner">The work that moves</span></span>
+            <span class="line-wrap"><span class="line-inner">systems forward.</span></span>
+          </h2>
+        </div>
+        <div class="ventures-count">04 / Systems</div>
+      </div>
+
+      <div class="ventures-grid">
+        <!-- Venture 1: Zandar AI -->
+        <article class="venture-card trigger-inview fade-up" style="transition-delay: 0ms;">
+          <figure class="liquid-figure" role="img" aria-label="Zandar AI Autonomous Pentest Platform">
+            <img src="venture-01.webp" alt="Zandar AI Autonomous Pentest Engine" class="liquid-img" style="filter: url(#venture-liquid);" loading="lazy">
+            <div class="liquid-veil"></div>
+            <div class="liquid-glow"></div>
+            <div class="liquid-vignette"></div>
+          </figure>
+          <div class="venture-meta-row">
+            <div>
+              <h3 class="venture-name">Zandar AI</h3>
+              <p class="venture-blurb">Single LangGraph StateGraph engine driving 18+ containerized security binaries (nmap, nuclei, sqlmap, ffuf) with Amazon Bedrock multi-model routing (DeepSeek/Claude/Qwen), GraphRAG three-tier memory, and human-in-the-loop exploit gates.</p>
+            </div>
+            <div class="venture-right">
+              <div class="venture-year">2026</div>
+              <div class="venture-outcome">Autonomous Pentest</div>
+            </div>
+          </div>
+          <div class="venture-cat">AI Cybersecurity & Multi-Agent Architecture</div>
+        </article>
+
+        <!-- Venture 2: Zandar OSINT -->
+        <article class="venture-card trigger-inview fade-up" style="transition-delay: 120ms;">
+          <figure class="liquid-figure" role="img" aria-label="Zandar OSINT Intelligence Platform">
+            <img src="venture-02.webp" alt="Zandar OSINT Intelligence Platform" class="liquid-img" style="filter: url(#venture-liquid);" loading="lazy">
+            <div class="liquid-veil"></div>
+            <div class="liquid-glow"></div>
+            <div class="liquid-vignette"></div>
+          </figure>
+          <div class="venture-meta-row">
+            <div>
+              <h3 class="venture-name">Zandar OSINT</h3>
+              <p class="venture-blurb">Autonomous 4-graph LangGraph pipeline with Celery workers and 26 multi-tier collection adapters. Powered by fine-tuned IndoBERT (0.894 F1), narrative clustering, BPS/BMKG claim verification, and OpenStreetMap geospatial market analytics.</p>
+            </div>
+            <div class="venture-right">
+              <div class="venture-year">2026</div>
+              <div class="venture-outcome">Narrative Forensics</div>
+            </div>
+          </div>
+          <div class="venture-cat">Open Source Intelligence & Geospatial Analytics</div>
+        </article>
+
+        <!-- Venture 3: Frontend Engineering -->
+        <article class="venture-card trigger-inview fade-up" style="transition-delay: 0ms;">
+          <figure class="liquid-figure" role="img" aria-label="Theme &amp; Frontend Engineering at Nozaracy Studio">
+            <img src="venture-03.webp" alt="Theme &amp; Frontend Engineering at Nozaracy Studio" class="liquid-img" style="filter: url(#venture-liquid);" loading="lazy">
+            <div class="liquid-veil"></div>
+            <div class="liquid-glow"></div>
+            <div class="liquid-vignette"></div>
+          </figure>
+          <div class="venture-meta-row">
+            <div>
+              <h3 class="venture-name">Theme &amp; Frontend Engineering</h3>
+              <p class="venture-blurb">End-to-end production playbook at Nozaracy Studio spanning <strong>Discovery</strong> (Figma token mapping &amp; architecture), <strong>Implementation</strong> (bespoke WordPress PHP &amp; Shopify Liquid themes), <strong>AI-Accelerated Pipelines</strong> (rapid scaffolding &amp; test synthesis), multi-viewport <strong>QA</strong>, and <strong>Final Audit</strong> (Core Web Vitals &amp; a11y).</p>
+            </div>
+            <div class="venture-right">
+              <div class="venture-year">Freelance · Present</div>
+              <div class="venture-outcome">Nozaracy Studio</div>
+            </div>
+          </div>
+          <div class="venture-cat">Discovery → Implementation → QA → Final Audit</div>
+        </article>
+
+        <!-- Venture 4: IT Infrastructure Support -->
+        <article class="venture-card trigger-inview fade-up" style="transition-delay: 120ms;">
+          <figure class="liquid-figure" role="img" aria-label="Enterprise IT Infrastructure Support">
+            <img src="venture-04.webp" alt="Enterprise IT Infrastructure Support" class="liquid-img" style="filter: url(#venture-liquid);" loading="lazy">
+            <div class="liquid-veil"></div>
+            <div class="liquid-glow"></div>
+            <div class="liquid-vignette"></div>
+          </figure>
+          <div class="venture-meta-row">
+            <div>
+              <h3 class="venture-name">Infrastructure & Systems Support</h3>
+              <p class="venture-blurb">Enterprise technical support, hardware troubleshooting, network infrastructure management, and critical user/system maintenance at PT Sangsaka Surya Karunia.</p>
+            </div>
+            <div class="venture-right">
+              <div class="venture-year">2020–2021</div>
+              <div class="venture-outcome">Enterprise Operations</div>
+            </div>
+          </div>
+          <div class="venture-cat">Infrastructure, Troubleshooting & Networking</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 7. Impact Section -->
+    <section id="impact" aria-label="By The Numbers">
+      <div class="impact-header trigger-inview">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>By The Numbers</div>
+        <h2 class="impact-heading">
+          <span class="line-wrap"><span class="line-inner">Engineered & verified.</span></span>
+        </h2>
+      </div>
+
+      <dl class="impact-dl">
+        <div class="impact-cell trigger-inview fade-up" style="transition-delay: 0ms;">
+          <dd class="impact-figure">26</dd>
+          <dt class="impact-label">Ingestion &amp; OSINT Data Adapters (3 Tiers)</dt>
+        </div>
+
+        <div class="impact-cell trigger-inview fade-up" style="transition-delay: 110ms;">
+          <dd class="impact-figure">18+</dd>
+          <dt class="impact-label">Containerized Security Binaries Governed</dt>
+        </div>
+
+        <div class="impact-cell trigger-inview fade-up" style="transition-delay: 220ms;">
+          <dd class="impact-figure">0.894</dd>
+          <dt class="impact-label">IndoBERT Benchmark F1 Score (NusaX Gold Set)</dt>
+        </div>
+
+        <div class="impact-cell trigger-inview fade-up" style="transition-delay: 330ms;">
+          <dd class="impact-figure">3-Tier</dd>
+          <dt class="impact-label">GraphRAG Memory (Vector · Graph · Episodic)</dt>
+      </dl>
+
+      <!-- Verified Credentials & Honors Showcase -->
+      <div class="honors-wrap trigger-inview">
+        <!-- Group 1: Verified Industry Credentials & National Honors -->
+        <div class="honors-topbar">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Industry &amp; National Honors</div>
+          <span class="honors-subtitle">Verified Vendor Certifications &amp; National Competition Honors</span>
+        </div>
+
+        <div class="honors-grid">
+          <!-- Card 1: Digination Fest 2024 -->
+          <div class="honor-card" data-cert-index="0" tabindex="0" role="button" aria-label="Open Digination Fest 2024 Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge"><span class="honor-badge-dot"></span>2nd Place Winner</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="0" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="0">
+                <img src="cert-digination-2024.webp" alt="Digination Fest 2024 Certificate Preview" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Networking Competition</div>
+              <div class="honor-org">Digination Fest 2024 · Dirkominfo PPI Dunia (Team Netanet)</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">CERT: 081/CERTIFICATE/PPID-KOMINFO/V/2024</div>
+              <div class="honor-tags">
+                <span class="honor-tag">Routing</span>
+                <span class="honor-tag">Switching</span>
+                <span class="honor-tag">Topology</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Cisco Network Security -->
+          <div class="honor-card" data-cert-index="1" tabindex="0" role="button" aria-label="Open Cisco Network Security Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge"><span class="honor-badge-dot"></span>Cisco Certified</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="1" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="1">
+                <img src="cert-cisco-netsec.webp" alt="Cisco Network Security Certificate Preview" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Network Security</div>
+              <div class="honor-org">Cisco Networking Academy · Issued Jan 12, 2026</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">STUDENT CREDENTIAL: 22.83.0886</div>
+              <div class="honor-tags">
+                <span class="honor-tag">Cisco ASA</span>
+                <span class="honor-tag">IPsec VPN</span>
+                <span class="honor-tag">AAA / ACL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Cisco CCNA 3 (ENSA) -->
+          <div class="honor-card" data-cert-index="2" tabindex="0" role="button" aria-label="Open Cisco CCNA 3 ENSA Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge"><span class="honor-badge-dot"></span>CCNA 3 · ENSA</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="2" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="2">
+                <img src="cert-cisco-ccna3.webp" alt="Cisco CCNA 3 ENSA Certificate Preview" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Enterprise Net, Security &amp; Auto</div>
+              <div class="honor-org">Cisco Networking Academy · Issued Oct 11, 2024</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">OSPFv2 · SDN · NETWORK AUTOMATION</div>
+              <div class="honor-tags">
+                <span class="honor-tag">Automation</span>
+                <span class="honor-tag">OSPFv2</span>
+                <span class="honor-tag">WAN QoS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Cisco CCNA 2 (SRWE) -->
+          <div class="honor-card" data-cert-index="3" tabindex="0" role="button" aria-label="Open Cisco CCNA 2 SRWE Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge"><span class="honor-badge-dot"></span>CCNA 2 · SRWE</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="3" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="3">
+                <img src="cert-cisco-ccna2.webp" alt="Cisco CCNA 2 SRWE Certificate Preview" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Switching, Routing &amp; Wireless</div>
+              <div class="honor-org">Cisco Networking Academy · Issued Feb 13, 2024</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">VLANs · INTER-VLAN · STP · ETHERCHANNEL</div>
+              <div class="honor-tags">
+                <span class="honor-tag">VLANs</span>
+                <span class="honor-tag">STP</span>
+                <span class="honor-tag">WLC / L2 Sec</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Cisco CCNA 1 (ITN) -->
+          <div class="honor-card" data-cert-index="4" tabindex="0" role="button" aria-label="Open Cisco CCNA 1 ITN Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge"><span class="honor-badge-dot"></span>CCNA 1 · ITN</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="4" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="4">
+                <img src="cert-cisco-ccna1.webp" alt="Cisco CCNA 1 ITN Certificate Preview" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Introduction to Networks</div>
+              <div class="honor-org">Cisco Networking Academy · Issued Feb 13, 2024</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">IPv4 / IPv6 ARCHITECTURE · ETHERNET · OSI</div>
+              <div class="honor-tags">
+                <span class="honor-tag">IPv4 / IPv6</span>
+                <span class="honor-tag">Subnetting</span>
+                <span class="honor-tag">Packet Tracer</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Group 2: Academic Leadership & Campus Milestones (Universitas AMIKOM Yogyakarta) -->
+        <div class="honors-topbar" style="margin-top: 4.5rem; padding-top: 3rem; border-top: 1px solid var(--line);">
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Campus &amp; Academic Records</div>
+          <span class="honors-subtitle">Universitas AMIKOM Yogyakarta · Specialization &amp; Competition Records</span>
+        </div>
+
+        <div class="honors-grid">
+          <!-- Card 6: HIMMTEK Divisi Cybersecurity -->
+          <div class="honor-card" data-cert-index="5" tabindex="0" role="button" aria-label="Open HIMMTEK Cybersecurity Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge" style="color: #60a5fa;"><span class="honor-badge-dot" style="background: #60a5fa;"></span>HIMMTEK Cybersec</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="5" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="5">
+                <img src="cert-himmtek-cybersec-2025.webp" alt="HIMMTEK Cybersecurity Division Certificate" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Anggota Divisi Cybersecurity</div>
+              <div class="honor-org">Himpunan Mahasiswa Teknik Komputer · Periode 2024/2025</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">NO: 1337/S-KMHS/AMIKOM/VI/2025 · Direktur Kemahasiswaan</div>
+              <div class="honor-tags">
+                <span class="honor-tag">Cybersecurity</span>
+                <span class="honor-tag">HIMMTEK</span>
+                <span class="honor-tag">Organisasi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: AMICTA 2024 ICT Showcase -->
+          <div class="honor-card" data-cert-index="6" tabindex="0" role="button" aria-label="Open AMICTA 2024 Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge" style="color: #fbbf24;"><span class="honor-badge-dot" style="background: #fbbf24;"></span>AMICTA 2024 Peserta</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="6" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="6">
+                <img src="cert-amicta-show-2024.webp" alt="AMICTA 2024 ICT Showcase Certificate" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">ICT Innovation &amp; Networking Showcase</div>
+              <div class="honor-org">Fakultas Ilmu Komputer · Universitas AMIKOM Yogyakarta</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">NO: 13.129/AMIKOM-FIK/AMICTA/VI/2024 · 7 Juni 2024</div>
+              <div class="honor-tags">
+                <span class="honor-tag">ICT Products</span>
+                <span class="honor-tag">Networking Track</span>
+                <span class="honor-tag">AMICTA 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8: Amikom English Proficiency Test (TOEFL Prediction: 453) -->
+          <div class="honor-card" data-cert-index="7" tabindex="0" role="button" aria-label="Open Amikom English Proficiency Test Certificate">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge" style="color: #c084fc;"><span class="honor-badge-dot" style="background: #c084fc;"></span>TOEFL Pred: 453</div>
+                <button type="button" class="cert-pill-badge" data-cert-index="7" aria-label="View verified certificate">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14L21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                  <span>View PDF</span>
+                </button>
+              </div>
+
+              <!-- Certificate Preview Thumbnail Badge -->
+              <div class="honor-cert-preview" data-cert-index="7">
+                <img src="cert-toefl-amikom.webp" alt="Amikom English Proficiency Test Certificate" class="honor-cert-thumb" loading="lazy" />
+                <div class="honor-cert-thumb-overlay">
+                  <span class="thumb-zoom-badge">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    <span>Inspect PDF</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="honor-name">Amikom English Proficiency Test</div>
+              <div class="honor-org">Universitas AMIKOM Yogyakarta · Intermediate Level</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">ID: #AEPT092611555 · Test Date: Sept 21, 2026</div>
+              <div class="honor-tags">
+                <span class="honor-tag">TOEFL: 453</span>
+                <span class="honor-tag">Intermediate</span>
+                <span class="honor-tag">English Proficiency</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 9: AMICTA CTF 2025 (Team Serabutan) - Honest Activity Record (No Fake Certificate) -->
+          <div class="honor-card" tabindex="0" role="article" aria-label="AMICTA 2025 CTF Activity Record">
+            <div class="honor-card-top">
+              <div class="honor-card-header-row">
+                <div class="honor-badge" style="color: #38bdf8;"><span class="honor-badge-dot" style="background: #38bdf8;"></span>Campus CTF Record</div>
+                <a href="#voices" class="cert-pill-badge" style="border-color: rgba(56, 189, 248, 0.35); color: #38bdf8; background: rgba(56, 189, 248, 0.08);" aria-label="View competition experience record">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  <span>Activity Log</span>
+                </a>
+              </div>
+
+              <!-- Genuine Activity Record Card Preview -->
+              <div class="honor-cert-preview honor-record-preview" style="background: radial-gradient(ellipse at center, #101726 0%, #080b12 100%); border-color: rgba(56, 189, 248, 0.22);">
+                <div style="padding: 1.1rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 0.35rem;">
+                  <span style="font-family: monospace; font-size: 0.72rem; color: #38bdf8; letter-spacing: 0.16em; text-transform: uppercase;">TEAM SERABUTAN</span>
+                  <span style="font-size: 0.92rem; font-weight: 600; color: #f1f5f9;">AMICTA 2025 CTF Competitor</span>
+                  <span style="font-size: 0.72rem; color: #94a3b8;">Offensive &amp; Defensive Cybersecurity Track</span>
+                  <span style="display: inline-block; margin-top: 0.25rem; font-size: 0.62rem; color: #64748b; font-family: monospace; text-transform: uppercase; letter-spacing: 0.08em;">[ Campus Activity Record · No Certificate Issued ]</span>
+                </div>
+              </div>
+
+              <div class="honor-name">Cyber Security Competition (CTF)</div>
+              <div class="honor-org">AMICTA AMIKOM 2025 · Team Serabutan</div>
+            </div>
+            <div class="honor-card-bottom">
+              <div class="honor-meta">STATUS: CAMPUS COMPETITION RECORD · TEAM SERABUTAN</div>
+              <div class="honor-tags">
+                <span class="honor-tag">CTF Security</span>
+                <span class="honor-tag">Web Exploit</span>
+                <span class="honor-tag">Crypto</span>
+                <span class="honor-tag">Forensics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Experience / Voices Section -->
+    <section id="voices" aria-label="Experience and Perspectives">
+      <div class="voices-header trigger-inview">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Experience & Focus</div>
+        <h2 class="voices-heading">
+          <span class="line-wrap"><span class="line-inner">Where engineering</span></span>
+          <span class="line-wrap"><span class="line-inner">meets execution.</span></span>
+        </h2>
+      </div>
+
+      <div class="voices-body-grid">
+        <!-- Selector List (Left) -->
+        <div class="voices-selector-col trigger-inview">
+          <ul>
+            <li>
+              <button class="voices-btn active" data-voice="0" aria-label="Select Theme &amp; Frontend Engineering at Nozaracy Studio">
+                <span class="voice-index">01</span>
+                <div class="voice-meta-block">
+                  <div class="voice-title">Theme &amp; Frontend Engineering</div>
+                  <div class="voice-sub">Nozaracy Studio · Full-Cycle Playbook · Freelance (Present)</div>
+                </div>
+                <span class="voice-indicator"></span>
+              </button>
+            </li>
+
+            <li>
+              <button class="voices-btn" data-voice="1" aria-label="Select AI Security and Agentic Systems Experience">
+                <span class="voice-index">02</span>
+                <div class="voice-meta-block">
+                  <div class="voice-title">AI Security &amp; Agentic Architect</div>
+                  <div class="voice-sub">Zandar AI &amp; OSINT Platforms · 2026</div>
+                </div>
+                <span class="voice-indicator"></span>
+              </button>
+            </li>
+
+            <li>
+              <button class="voices-btn" data-voice="2" aria-label="Select Enterprise Infrastructure and Support Experience">
+                <span class="voice-index">03</span>
+                <div class="voice-meta-block">
+                  <div class="voice-title">Enterprise Infrastructure &amp; Support</div>
+                  <div class="voice-sub">PT Sangsaka Surya Karunia · 2020–2021</div>
+                </div>
+                <span class="voice-indicator"></span>
+              </button>
+            </li>
+
+            <li>
+              <button class="voices-btn" data-voice="3" aria-label="Select Competitive Cybersecurity and Networking Experience">
+                <span class="voice-index">04</span>
+                <div class="voice-meta-block">
+                  <div class="voice-title">Competitive Cybersecurity &amp; Networking</div>
+                  <div class="voice-sub">Digination Fest 2nd Place · Cisco Trilogy · AMIKOM</div>
+                </div>
+                <span class="voice-indicator"></span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Featured Panel (Right) -->
+        <div class="voices-featured-col trigger-inview">
+          <div class="voices-panel">
+            <div class="voices-quote-wrap">
+              <blockquote>
+                <p class="voices-quote-text" id="voice-quote-target"></p>
+                <footer class="voices-footer" id="voice-footer-target">
+                  Nozaracy Studio — Full-Cycle Theme Engineer (Discovery · Implementation · QA · Final Audit)
+                </footer>
+              </blockquote>
+            </div>
+
+            <div class="voices-portrait-wrap">
+              <figure class="liquid-figure voice-portrait-fig" role="img">
+                <img src="experience-frontend.webp" alt="Theme &amp; Frontend Engineering at Nozaracy Studio" id="voice-portrait-img" class="liquid-img" style="filter: url(#voice-liquid);" loading="lazy">
+                <div class="liquid-veil"></div>
+                <div class="liquid-glow"></div>
+                <div class="liquid-vignette"></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Contact & Footer -->
+    <footer id="contact" aria-label="Contact and Socials">
+      <div class="trigger-inview">
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Let's Build</div>
+        <h2 class="contact-heading">
+          <span class="line-wrap"><span class="line-inner">Fresh Graduate ·</span></span>
+          <span class="line-wrap"><span class="line-inner">Open for Opportunities.</span></span>
+        </h2>
+        <p class="contact-desc fade-up">
+          Graduate of <strong>Universitas AMIKOM Yogyakarta</strong> (NIM: 22.83.0886), <strong>2nd Place Winner in Digination Fest 2024</strong> (Dirkominfo PPI Dunia), and certified across <strong>Cisco Network Security &amp; CCNA Enterprise Automation</strong>. Currently looking for high-impact opportunities across networking, infrastructure, cybersecurity, and production AI systems.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem;">
+          <a href="mailto:hakiki2917@gmail.com" class="email-link fade-up" aria-label="Send email to hakiki2917@gmail.com">
+            <span>hakiki2917@gmail.com</span>
+            <span class="email-arrow">↗</span>
+          </a>
+          <a href="cv-muhammad-nur-haqiqi.pdf" download="CV-Muhammad-Nur-Haqiqi.pdf" class="email-link fade-up" style="border-color: rgba(255, 59, 29, 0.4); background: rgba(255, 59, 29, 0.08);" aria-label="Download Official Curriculum Vitae PDF">
+            <span>Download CV (PDF)</span>
+            <span class="email-arrow">↓</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bar -->
+      <div class="footer-bar">
+        <div class="footer-left">
+          <p class="footer-signature">MUHAMMAD NUR HAQIQI</p>
+          <p class="footer-tagline">Designed &amp; built with conviction.</p>
+        </div>
+
+        <div class="footer-mid">
+          <nav aria-label="Social Links">
+            <ul class="social-list">
+              <li>
+                <a href="cv-muhammad-nur-haqiqi.pdf" target="_blank" class="social-link">
+                  <span class="social-rule"></span>
+                  <span>Curriculum Vitae (PDF) ↗</span>
+                </a>
+              </li>
+              <li>
+                <a href="cover-letter-muhammad-nur-haqiqi.pdf" target="_blank" class="social-link">
+                  <span class="social-rule"></span>
+                  <span>Cover Letter (PDF) ↗</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Fenrir717" target="_blank" rel="noreferrer noopener" class="social-link">
+                  <span class="social-rule"></span>
+                  <span>GitHub</span>
+                </a>
+              </li>
+              <li>
+                <a href="mailto:hakiki2917@gmail.com" class="social-link">
+                  <span class="social-rule"></span>
+                  <span>Email</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-right">
+          <p class="copyright-text">
+            &copy; 2026 Muhammad Nur Haqiqi.<br>All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Certificate Lightbox Carousel Modal -->
+  <div id="cert-lightbox" class="cert-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Certificate Viewer">
+    <div class="cert-lightbox-backdrop" id="cert-backdrop"></div>
+    
+    <div class="cert-lightbox-container">
+      <!-- Top Bar: Counter, Title Badge & Close Button -->
+      <div class="cert-lightbox-header">
+        <div class="cert-lightbox-counter">
+          <span id="cert-current-idx">01</span>
+          <span class="cert-counter-sep">/</span>
+          <span class="cert-counter-total" id="cert-total-count">06</span>
+        </div>
+        <div class="cert-lightbox-badge-title" id="cert-nav-badge">
+          <span class="honor-badge-dot"></span>
+          <span id="cert-badge-text">2ND PLACE WINNER</span>
+        </div>
+        <button type="button" class="cert-close-btn" id="cert-close-btn" aria-label="Close certificate lightbox">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Main Stage: Prev, Certificate Image, Next -->
+      <div class="cert-stage-wrapper">
+        <button type="button" class="cert-nav-btn cert-nav-prev" id="cert-prev-btn" aria-label="Previous certificate">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="cert-image-frame" id="cert-image-frame">
+          <img src="cert-digination-2024.webp" alt="Certificate Document" id="cert-main-img" class="cert-main-img" />
+        </div>
+
+        <button type="button" class="cert-nav-btn cert-nav-next" id="cert-next-btn" aria-label="Next certificate">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- Bottom Bar: Metadata & Carousel Pagination Dots -->
+      <div class="cert-lightbox-footer">
+        <div class="cert-meta-info">
+          <div class="cert-title-row">
+            <h3 class="cert-modal-title" id="cert-modal-title">Networking Competition</h3>
+            <span class="cert-modal-tag" id="cert-modal-tag">2nd Place Winner</span>
+          </div>
+          <div class="cert-modal-sub" id="cert-modal-sub">Digination Fest 2024 · Dirkominfo PPI Dunia (Team Netanet)</div>
+          <div class="cert-modal-id" id="cert-modal-id">CERT: 081/CERTIFICATE/PPID-KOMINFO/V/2024 · Issued: June 23, 2024</div>
+        </div>
+
+        <div class="cert-dots-wrapper" id="cert-dots-wrapper" role="tablist" aria-label="Certificate Slides">
+          <!-- Dynamically populated dot controls -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules and Motion System -->
+  <script type="module">
+    import Lenis from "lenis";
+
+    // 1. Lenis Smooth Scroll Setup
+    const lenis = new Lenis({
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.5,
+    });
+    window.lenis = lenis;
+
+    function raf(t) {
+      lenis.raf(t);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    // Stop scroll initially for preloader
+    lenis.stop();
+    window.scrollTo(0, 0);
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          lenis.scrollTo(target, { offset: 0, duration: 1.2 });
+          // Close mobile menu if open
+          closeMobileMenu();
+        }
+      });
+    });
+
+    // 2. Adaptive Rem-Grid Scale-Up (>1920px)
+    const FONT_BASE = 16, BASE_W = 1920, COEF = 0.6666;
+    function applyAdaptiveGrid() {
+      const w = window.innerWidth;
+      const reduction = ((BASE_W - w) / BASE_W) * 100 * COEF;
+      const size = FONT_BASE - (FONT_BASE * reduction) / 100;
+      if (size > FONT_BASE) {
+        document.documentElement.style.fontSize = size + "px";
+      } else {
+        document.documentElement.style.removeProperty("font-size");
+      }
+    }
+    applyAdaptiveGrid();
+    window.addEventListener("resize", applyAdaptiveGrid);
+
+    // 3. Mobile Navigation Menu
+    const burgerBtn = document.getElementById('burger-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    function toggleMobileMenu() {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burgerBtn.classList.toggle('open', isOpen);
+      burgerBtn.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
+      if (isOpen) {
+        lenis.stop();
+      } else {
+        lenis.start();
+      }
+    }
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      burgerBtn.classList.remove('open');
+      burgerBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      lenis.start();
+    }
+    burgerBtn.addEventListener('click', toggleMobileMenu);
+
+    // 4. Hero Name Text Generation & Reveal
+    const nameLine1Text = "MUHAMMAD";
+    const nameLine2Text = "HAQIQI";
+    const line1El = document.getElementById('name-line-1');
+    const line2El = document.getElementById('name-line-2');
+
+    function buildLetterSpans(text, parent) {
+      parent.innerHTML = '';
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.className = 'letter-span';
+        span.textContent = text[i];
+        parent.appendChild(span);
+      }
+    }
+    buildLetterSpans(nameLine1Text, line1El);
+    buildLetterSpans(nameLine2Text, line2El);
+
+    // 5. Preloader Counter & Sequencing
+    const preloader = document.getElementById('preloader');
+    const preloadVal = document.getElementById('preload-val');
+    const preloadLabels = preloader.querySelectorAll('.preloader-label, .preloader-counter');
+
+    const COUNT_DURATION = 2000;
+    const startTime = performance.now();
+
+    function updatePreloader(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / COUNT_DURATION, 1);
+      const current = Math.floor(progress * 100);
+      preloadVal.textContent = current;
+      preloader.setAttribute('aria-valuenow', current);
+
+      if (progress < 1) {
+        requestAnimationFrame(updatePreloader);
+      } else {
+        // Counter reached 100
+        preloadVal.textContent = "100";
+        setTimeout(() => {
+          // Fade out labels
+          preloadLabels.forEach(el => el.style.opacity = '0');
+          setTimeout(() => {
+            // Wipe preloader up
+            preloader.style.transform = 'translateY(-100%)';
+            setTimeout(() => {
+              lenis.start();
+              preloader.style.pointerEvents = 'none';
+              preloader.setAttribute('aria-hidden', 'true');
+              startHeroReveals();
+            }, 650);
+          }, 200);
+        }, 150);
+      }
+    }
+    requestAnimationFrame(updatePreloader);
+
+    // 6. Hero Entrance Animations
+    function startHeroReveals() {
+      // 1. Letters line 1 (52ms stagger)
+      const letters1 = line1El.querySelectorAll('.letter-span');
+      letters1.forEach((span, idx) => {
+        setTimeout(() => {
+          span.style.transform = 'translateY(0)';
+          span.style.opacity = '1';
+        }, idx * 52);
+      });
+
+      // 2. Letters line 2 (starts 240ms after line 1)
+      const letters2 = line2El.querySelectorAll('.letter-span');
+      setTimeout(() => {
+        letters2.forEach((span, idx) => {
+          setTimeout(() => {
+            span.style.transform = 'translateY(0)';
+            span.style.opacity = '1';
+          }, idx * 52);
+        });
+      }, 240);
+
+      // 3. Roles line-by-line (stagger 80ms)
+      const roles = document.querySelectorAll('.hero-roles .role-inner');
+      setTimeout(() => {
+        roles.forEach((r, idx) => {
+          setTimeout(() => {
+            r.style.transform = 'translateY(0)';
+            r.style.opacity = '1';
+          }, idx * 80);
+        });
+      }, 200);
+
+      // 4. Hero description paragraph
+      setTimeout(() => {
+        const desc = document.getElementById('hero-desc-p');
+        desc.style.opacity = '1';
+        desc.style.transform = 'translateY(0)';
+      }, 400);
+
+      // 5. Scroll cue
+      setTimeout(() => {
+        const cue = document.getElementById('hero-cue');
+        cue.style.opacity = '1';
+      }, 900);
+    }
+
+    // 7. Scroll-Triggered In-View Observer (Mode: once)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0,
+      rootMargin: "0px"
+    });
+
+    document.querySelectorAll('.trigger-inview, .story-grid, .ventures-header, .impact-header, .voices-header').forEach(el => {
+      observer.observe(el);
+    });
+
+    const voicesData = [
+      {
+        quote: "“Operating an end-to-end delivery playbook at Nozaracy Studio — from design discovery and Figma token decomposition to bespoke WordPress (PHP) and Shopify (Liquid) implementations. Accelerated with AI pipelines for rapid component scaffolding and edge-case testing, backed by multi-viewport responsive QA and final Core Web Vitals audits before client handoff.”",
+        footer: "Nozaracy Studio — Full-Cycle Theme Engineer (Discovery · Implementation · QA · Final Audit)",
+        image: "experience-frontend.webp"
+      },
+      {
+        quote: "“Engineering end-to-end operator-controlled autonomous pentest loops with LangGraph, 18+ containerized security binaries (nuclei, nmap, ffuf), Amazon Bedrock multi-model routing, and GraphRAG three-tier memory (Qdrant + Neo4j + PostgreSQL).”",
+        footer: "Zandar AI & OSINT Platforms — AI Security & Autonomous Systems (2026)",
+        image: "experience-03.webp"
+      },
+      {
+        quote: "“Enterprise IT infrastructure maintenance, multi-VLAN troubleshooting, hardware diagnostics, and mission-critical user support under active operational requirements.”",
+        footer: "PT Sangsaka Surya Karunia — Support Technician (2020–2021)",
+        image: "experience-04.webp"
+      },
+      {
+        quote: "“Secured 2nd Place at Digination Fest 2024 Networking Competition (Dirkominfo PPI Dunia, Team Netanet), verified across the Cisco Network Security and CCNA Trilogy (Introduction to Networks, Switching & Routing, Enterprise Automation), and active in HIMMTEK Cybersecurity Division & AMICTA AMIKOM.”",
+        footer: "Digination Fest 2024 (Dirkominfo PPI Dunia), Cisco Networking Academy & AMIKOM",
+        image: "experience-01.webp"
+      }
+    ];
+
+    const voiceButtons = document.querySelectorAll('.voices-btn');
+    const quoteTarget = document.getElementById('voice-quote-target');
+    const footerTarget = document.getElementById('voice-footer-target');
+    const portraitImg = document.getElementById('voice-portrait-img');
+    let currentVoiceIdx = 0;
+
+    function renderVoice(index) {
+      currentVoiceIdx = index;
+      const data = voicesData[index];
+
+      // Update button active state
+      voiceButtons.forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+
+      // Update image
+      portraitImg.src = data.image;
+
+      // Word-by-word reveal on quote
+      quoteTarget.innerHTML = '';
+      const words = data.quote.split(' ');
+      words.forEach((w) => {
+        const span = document.createElement('span');
+        span.className = 'word-span';
+        span.textContent = w + '\u00A0';
+        quoteTarget.appendChild(span);
+      });
+
+      footerTarget.textContent = data.footer;
+
+      // Trigger word stagger
+      const wordSpans = quoteTarget.querySelectorAll('.word-span');
+      wordSpans.forEach((span, i) => {
+        setTimeout(() => {
+          span.classList.add('visible');
+        }, i * 22);
+      });
+    }
+
+    voiceButtons.forEach((btn) => {
+      btn.addEventListener('click', function() {
+        const idx = parseInt(this.getAttribute('data-voice'), 10);
+        if (idx !== currentVoiceIdx) {
+          renderVoice(idx);
+        }
+      });
+    });
+
+    // Initialize first voice
+    renderVoice(0);
+
+    // 9. Imperative Liquid Filter Motion (Desktop Only >768px)
+    if (window.innerWidth > 768) {
+      function setupLiquidHover(triggerEl, turbId, dispId, maxScale, maxFreq) {
+        const turb = document.getElementById(turbId);
+        const disp = document.getElementById(dispId);
+        if (!turb || !disp) return;
+
+        const targetImg = triggerEl.querySelector('img');
+        const filterName = turbId.replace('-turb', '-liquid');
+
+        let targetScale = 0;
+        let currentScale = 0;
+        let targetFreq = 0.009;
+        let currentFreq = 0.009;
+        let animating = false;
+
+        // Spring physics parameters (tension 140, friction 13)
+        let scaleVel = 0;
+        let freqVel = 0;
+        const tension = 0.08;
+        const friction = 0.76;
+
+        function step() {
+          const scaleForce = (targetScale - currentScale) * tension;
+          scaleVel = (scaleVel + scaleForce) * friction;
+          currentScale += scaleVel;
+
+          const freqForce = (targetFreq - currentFreq) * tension;
+          freqVel = (freqVel + freqForce) * friction;
+          currentFreq += freqVel;
+
+          disp.setAttribute('scale', currentScale.toFixed(2));
+          turb.setAttribute('baseFrequency', currentFreq.toFixed(4));
+
+          if (Math.abs(targetScale - currentScale) > 0.01 || Math.abs(scaleVel) > 0.01) {
+            requestAnimationFrame(step);
+          } else {
+            animating = false;
+            disp.setAttribute('scale', '0');
+            if (targetImg) targetImg.style.filter = 'none';
+          }
+        }
+
+        triggerEl.addEventListener('mouseenter', () => {
+          targetScale = maxScale;
+          targetFreq = maxFreq;
+          if (targetImg) targetImg.style.filter = 'url(#' + filterName + ')';
+          if (!animating) {
+            animating = true;
+            requestAnimationFrame(step);
+          }
+        });
+
+        triggerEl.addEventListener('mouseleave', () => {
+          targetScale = 0;
+          targetFreq = 0.009;
+          if (!animating) {
+            animating = true;
+            requestAnimationFrame(step);
+          }
+        });
+      }
+
+      // Hook up hero portrait liquid wobble
+      const heroTrigger = document.getElementById('hero-portrait-trigger');
+      if (heroTrigger) {
+        setupLiquidHover(heroTrigger, 'hero-turb', 'hero-disp', 26, 0.024);
+      }
+
+      // Hook up venture cards
+      document.querySelectorAll('.venture-card .liquid-figure').forEach(card => {
+        setupLiquidHover(card, 'venture-turb', 'venture-disp', 28, 0.022);
+      });
+
+      // Hook up voice card
+      const voiceFig = document.querySelector('.voice-portrait-fig');
+      if (voiceFig) {
+        setupLiquidHover(voiceFig, 'voice-turb', 'voice-disp', 22, 0.02);
+      }
+    }
+
+    // 10. Certificate Carousel Lightbox Controller
+    const certsData = [
+      {
+        badge: "2nd Place Winner",
+        title: "Networking Competition",
+        org: "Digination Fest 2024 · Dirkominfo PPI Dunia (Team Netanet)",
+        idMeta: "CERT: 081/CERTIFICATE/PPID-KOMINFO/V/2024 · Issued: June 23, 2024",
+        image: "cert-digination-2024.webp",
+        alt: "Digination Fest 2024 2nd Place Certificate"
+      },
+      {
+        badge: "Cisco Certified",
+        title: "Network Security",
+        org: "Cisco Networking Academy · Credentialed Course",
+        idMeta: "STUDENT CREDENTIAL: 22.83.0886 · Issued: Jan 12, 2026",
+        image: "cert-cisco-netsec.webp",
+        alt: "Cisco Network Security Certificate of Course Completion"
+      },
+      {
+        badge: "CCNA 3 · ENSA",
+        title: "Enterprise Networking, Security & Automation",
+        org: "Cisco Networking Academy · CCNA v7 Curriculum",
+        idMeta: "STUDENT CREDENTIAL: 22.83.0886 · Issued: Oct 11, 2024",
+        image: "cert-cisco-ccna3.webp",
+        alt: "Cisco CCNA 3 ENSA Certificate of Course Completion"
+      },
+      {
+        badge: "CCNA 2 · SRWE",
+        title: "Switching, Routing & Wireless Essentials",
+        org: "Cisco Networking Academy · CCNA v7 Curriculum",
+        idMeta: "STUDENT CREDENTIAL: 22.83.0886 · Issued: Feb 13, 2024",
+        image: "cert-cisco-ccna2.webp",
+        alt: "Cisco CCNA 2 SRWE Certificate of Course Completion"
+      },
+      {
+        badge: "CCNA 1 · ITN",
+        title: "Introduction to Networks",
+        org: "Cisco Networking Academy · CCNA v7 Curriculum",
+        idMeta: "STUDENT CREDENTIAL: 22.83.0886 · Issued: Feb 13, 2024",
+        image: "cert-cisco-ccna1.webp",
+        alt: "Cisco CCNA 1 ITN Certificate of Course Completion"
+      },
+      {
+        badge: "Academic Leadership",
+        title: "Anggota Divisi Cybersecurity",
+        org: "Himpunan Mahasiswa Teknik Komputer · Universitas AMIKOM Yogyakarta",
+        idMeta: "NO: 1337/S-KMHS/AMIKOM/VI/2025 · Periode 2024/2025",
+        image: "cert-himmtek-cybersec-2025.webp",
+        alt: "Sertifikat Anggota Divisi Cybersecurity HIMMTEK AMIKOM"
+      },
+      {
+        badge: "AMICTA 2024 Peserta",
+        title: "ICT Products & Competition Showcase",
+        org: "Fakultas Ilmu Komputer · Universitas AMIKOM Yogyakarta",
+        idMeta: "NO: 13.129/AMIKOM-FIK/AMICTA/VI/2024 · Issued: June 7, 2024",
+        image: "cert-amicta-show-2024.webp",
+        alt: "Sertifikat Peserta Talk Show dan Jalur Kompetisi AMICTA 2024"
+      },
+      {
+        badge: "TOEFL Pred: 453",
+        title: "Amikom English Proficiency Test",
+        org: "Universitas AMIKOM Yogyakarta · Intermediate Proficiency",
+        idMeta: "ID: #AEPT092611555 · Test Date: Sept 21, 2026 · Valid until Sept 21, 2027",
+        image: "cert-toefl-amikom.webp",
+        alt: "Certificate of Achievement Amikom English Proficiency Test TOEFL Prediction 453"
+      }
+    ];
+
+    const certLightbox = document.getElementById('cert-lightbox');
+    const certBackdrop = document.getElementById('cert-backdrop');
+    const certCloseBtn = document.getElementById('cert-close-btn');
+    const certPrevBtn = document.getElementById('cert-prev-btn');
+    const certNextBtn = document.getElementById('cert-next-btn');
+    const certMainImg = document.getElementById('cert-main-img');
+    const certCurrentIdx = document.getElementById('cert-current-idx');
+    const certTotalCount = document.getElementById('cert-total-count');
+    const certBadgeText = document.getElementById('cert-badge-text');
+    const certModalTitle = document.getElementById('cert-modal-title');
+    const certModalTag = document.getElementById('cert-modal-tag');
+    const certModalSub = document.getElementById('cert-modal-sub');
+    const certModalId = document.getElementById('cert-modal-id');
+    const certDotsWrapper = document.getElementById('cert-dots-wrapper');
+
+    let currentCertIndex = 0;
+    let isCertModalOpen = false;
+
+    // Build pagination dots
+    certsData.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.className = 'cert-dot' + (idx === 0 ? ' active' : '');
+      dot.setAttribute('type', 'button');
+      dot.setAttribute('aria-label', `Go to certificate ${idx + 1}`);
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToCert(idx);
+      });
+      certDotsWrapper.appendChild(dot);
+    });
+
+    function updateCertContent(idx) {
+      const data = certsData[idx];
+      certMainImg.classList.add('fade-out');
+
+      setTimeout(() => {
+        certMainImg.src = data.image;
+        certMainImg.alt = data.alt;
+        certCurrentIdx.textContent = String(idx + 1).padStart(2, '0');
+        certTotalCount.textContent = String(certsData.length).padStart(2, '0');
+        certBadgeText.textContent = data.badge.toUpperCase();
+        certModalTitle.textContent = data.title;
+        certModalTag.textContent = data.badge;
+        certModalSub.textContent = data.org;
+        certModalId.textContent = data.idMeta;
+
+        // Update active dot
+        const dots = certDotsWrapper.querySelectorAll('.cert-dot');
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === idx);
+        });
+
+        certMainImg.classList.remove('fade-out');
+      }, 140);
+    }
+
+    function openCertModal(index) {
+      currentCertIndex = (index + certsData.length) % certsData.length;
+      updateCertContent(currentCertIndex);
+      certLightbox.classList.add('active');
+      certLightbox.setAttribute('aria-hidden', 'false');
+      isCertModalOpen = true;
+      document.body.style.overflow = 'hidden';
+      if (window.lenis) window.lenis.stop();
+    }
+
+    function closeCertModal() {
+      certLightbox.classList.remove('active');
+      certLightbox.setAttribute('aria-hidden', 'true');
+      isCertModalOpen = false;
+      document.body.style.overflow = '';
+      if (window.lenis) window.lenis.start();
+    }
+
+    function navigateCert(dir) {
+      currentCertIndex = (currentCertIndex + dir + certsData.length) % certsData.length;
+      updateCertContent(currentCertIndex);
+    }
+
+    function goToCert(idx) {
+      currentCertIndex = idx;
+      updateCertContent(currentCertIndex);
+    }
+
+    // Attach button listeners
+    if (certCloseBtn) certCloseBtn.addEventListener('click', closeCertModal);
+    if (certBackdrop) certBackdrop.addEventListener('click', closeCertModal);
+    if (certPrevBtn) certPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateCert(-1); });
+    if (certNextBtn) certNextBtn.addEventListener('click', (e) => { e.stopPropagation(); navigateCert(1); });
+
+    // Open triggers from cards & badges
+    document.querySelectorAll('.honor-card').forEach((card) => {
+      card.addEventListener('click', function(e) {
+        // Only trigger if not clicking another interactive element inside
+        const idx = parseInt(this.getAttribute('data-cert-index'), 10);
+        if (!isNaN(idx)) openCertModal(idx);
+      });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const idx = parseInt(this.getAttribute('data-cert-index'), 10);
+          if (!isNaN(idx)) openCertModal(idx);
+        }
+      });
+    });
+
+    document.querySelectorAll('.cert-pill-badge, .honor-cert-preview').forEach((el) => {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const idx = parseInt(this.getAttribute('data-cert-index'), 10);
+        if (!isNaN(idx)) openCertModal(idx);
+      });
+    });
+
+    // Global keyboard support: Escape to close, ArrowLeft/Right to navigate
+    window.addEventListener('keydown', (e) => {
+      if (!isCertModalOpen) return;
+      if (e.key === 'Escape') {
+        closeCertModal();
+      } else if (e.key === 'ArrowLeft') {
+        navigateCert(-1);
+      } else if (e.key === 'ArrowRight') {
+        navigateCert(1);
+      }
+    });
+
+    // Touch swipe support on modal stage
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const stageWrapper = document.querySelector('.cert-stage-wrapper');
+    if (stageWrapper) {
+      stageWrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+
+      stageWrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const threshold = 40;
+        if (touchEndX < touchStartX - threshold) {
+          navigateCert(1); // Swipe left -> Next
+        } else if (touchEndX > touchStartX + threshold) {
+          navigateCert(-1); // Swipe right -> Prev
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>
