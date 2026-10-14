@@ -329,21 +329,25 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      gap: 12pt;
       margin-bottom: 4pt;
       border-bottom: 1px solid #f1f5f9;
       padding-bottom: 3pt;
     }
     .project-title {
-      font-size: 10.5pt;
+      font-size: 10.2pt;
       font-weight: 800;
       color: #0f172a;
+      flex: 1;
     }
     .project-category {
-      font-size: 8pt;
+      font-size: 7.8pt;
       font-weight: 700;
       color: #c2410c;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
     .project-content-grid {
       display: grid;
@@ -760,9 +764,12 @@
             <span class="tech-pill">Lighthouse 90+</span>
             <span class="tech-pill">Playwright QA</span>
           </div>
-          <div class="project-link-row">
-            <strong>Live Portfolio &amp; Deliverables:</strong>
-            <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a>
+          <div class="project-link-row" style="flex-wrap: wrap; gap: 3pt 6pt;">
+            <strong>Live Client &amp; Theme Sites:</strong>
+            <a href="https://chilld-meat-testing.myshopify.com/" target="_blank">chilld-meat-testing.myshopify.com (Shopify)</a> ·
+            <a href="https://autism.nozaracy.com/" target="_blank">autism.nozaracy.com</a> ·
+            <a href="https://newcay.nozaracy.com/" target="_blank">newcay.nozaracy.com</a> ·
+            <a href="https://testing-hawai.nozaracy.com/" target="_blank">testing-hawai.nozaracy.com</a>
           </div>
         </div>
         <div class="project-thumb-frame">
