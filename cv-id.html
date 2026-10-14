@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Muhammad Nur Haqiqi — Daftar Riwayat Hidup (Curriculum Vitae) &amp; Lampiran Portofolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.42;
+      font-size: 9pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a {
+      color: #0f172a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+      transition: border-color 0.2s;
+    }
+    a:hover {
+      border-color: #0f172a;
+    }
+    .cv-container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8pt;
+      margin-bottom: 10pt;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12pt;
+    }
+    .name-col {
+      flex: 1;
+    }
+    .name-col h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .name-col .headline {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #c2410c;
+      margin-top: 3pt;
+      letter-spacing: -0.01em;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4pt 12pt;
+      margin-top: 6pt;
+      font-size: 8.5pt;
+      color: #475569;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3pt;
+    }
+    .contact-item strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+    
+    /* QR Code Widget */
+    .qr-widget {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 4pt;
+      padding: 4pt 6pt;
+      background: #f8fafc;
+      text-align: center;
+      flex-shrink: 0;
+      width: 78pt;
+    }
+    .qr-img {
+      width: 50pt;
+      height: 50pt;
+      display: block;
+      margin: 0 auto;
+    }
+    .qr-caption {
+      font-size: 5.8pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2.5pt;
+      line-height: 1.15;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 9pt;
+      page-break-inside: auto;
+    }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2.5pt;
+      margin-bottom: 5pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .summary-text {
+      font-size: 8.8pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.44;
+    }
+    .summary-text strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 7.5pt;
+      page-break-inside: avoid;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9pt;
+      margin-bottom: 1.5pt;
+    }
+    .exp-role {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .exp-company {
+      font-weight: 600;
+      color: #c2410c;
+    }
+    .exp-date-loc {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #64748b;
+      text-align: right;
+    }
+    .exp-bullets {
+      list-style-type: none;
+      margin-top: 2pt;
+      padding-left: 0;
+    }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 10pt;
+      margin-bottom: 1.5pt;
+      font-size: 8.6pt;
+      color: #334155;
+      line-height: 1.38;
+    }
+    .exp-bullets li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      top: -0.5pt;
+      color: #c2410c;
+      font-size: 8.5pt;
+    }
+
+    /* Skills Grid */
+    .skills-block {
+      display: grid;
+      grid-template-columns: 140pt 1fr;
+      gap: 3pt 8pt;
+      font-size: 8.5pt;
+      line-height: 1.36;
+      page-break-inside: avoid;
+    }
+    .skills-label {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .skills-value {
+      color: #334155;
+    }
+
+    /* Credentials & Honors */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5pt 10pt;
+      page-break-inside: avoid;
+    }
+    .cred-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #0f172a;
+      padding: 4pt 6pt;
+      border-radius: 2pt;
+      font-size: 8.4pt;
+    }
+    .cred-item.award {
+      border-left-color: #c2410c;
+    }
+    .cred-item.academic {
+      border-left-color: #7c3aed;
+    }
+    .cred-name {
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      gap: 4pt;
+    }
+    .cred-org {
+      font-size: 8pt;
+      color: #475569;
+      margin-top: 1pt;
+    }
+    .cred-meta {
+      font-size: 7.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748b;
+      margin-top: 1.5pt;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.8pt;
+      margin-bottom: 4pt;
+      page-break-inside: avoid;
+    }
+    .edu-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .edu-inst {
+      color: #475569;
+      font-weight: 500;
+      font-size: 8.4pt;
+    }
+    .edu-right {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #64748b;
+      text-align: right;
+    }
+
+    /* PAGE BREAK ENFORCER */
+    .page-break {
+      page-break-before: always;
+      padding-top: 4pt;
+    }
+
+    /* =========================================
+       PAGE 3: PROJECT SHOWCASE STYLING
+       ========================================= */
+    .showcase-header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 6pt;
+      margin-bottom: 10pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .showcase-header h2 {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+    .showcase-header .showcase-subtitle {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 2pt;
+    }
+    .showcase-badge {
+      background: #c2410c;
+      color: #ffffff;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 2pt 6pt;
+      border-radius: 2pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 4pt;
+      background: #ffffff;
+      padding: 7pt 9pt;
+      margin-bottom: 9pt;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .project-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4pt;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 3pt;
+    }
+    .project-title {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .project-category {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #c2410c;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .project-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 115pt;
+      gap: 9pt;
+      align-items: center;
+    }
+    .project-desc-col p {
+      font-size: 8.3pt;
+      color: #334155;
+      line-height: 1.38;
+      margin-bottom: 4pt;
+      text-align: justify;
+    }
+    .project-desc-col p strong {
+      color: #0f172a;
+    }
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3pt;
+      margin-top: 4pt;
+    }
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.2pt;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 1.5pt 4pt;
+      border-radius: 2pt;
+      border: 1px solid #e2e8f0;
+    }
+    .project-link-row {
+      margin-top: 4.5pt;
+      font-size: 8pt;
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+    }
+    .project-link-row a {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #0f172a;
+      border-bottom: 1px solid #0f172a;
+    }
+    .project-thumb-frame {
+      border: 1px solid #cbd5e1;
+      border-radius: 3pt;
+      overflow: hidden;
+      background: #08080a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .project-thumb {
+      width: 100%;
+      height: 72pt;
+      object-fit: cover;
+      display: block;
+    }
+
+    .showcase-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6pt;
+      margin-top: 8pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.8pt;
+      color: #64748b;
+    }
+    .showcase-footer a {
+      color: #0f172a;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- ================= HALAMAN 1 ================= -->
+    <header>
+      <div class="header-top">
+        <div class="name-col">
+          <h1>Muhammad Nur Haqiqi</h1>
+          <div class="headline">Insinyur Infrastruktur IT · Pengembang Tema &amp; Frontend · Spesialis Keamanan AI</div>
+          <div class="contact-grid">
+            <div class="contact-item"><strong>Lokasi:</strong> Yogyakarta, Indonesia (Jl. Imogiri Barat KM 8)</div>
+            <div class="contact-item"><strong>Email:</strong> <a href="mailto:hakiki2917@gmail.com">hakiki2917@gmail.com</a></div>
+            <div class="contact-item"><strong>Telepon/WA:</strong> <a href="tel:+62895363206171">0895-3632-06171</a></div>
+            <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Fenrir717" target="_blank">github.com/Fenrir717</a></div>
+            <div class="contact-item"><strong>Portofolio:</strong> <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a></div>
+            <div class="contact-item"><strong>Kemahiran Bahasa:</strong> Prediksi TOEFL: 453 (Intermediate)</div>
+          </div>
+        </div>
+        <div class="qr-widget">
+          <img src="qr-portfolio-hd.png" alt="QR Code Portofolio Digital" class="qr-img">
+          <div class="qr-caption">Pindai Portofolio &amp; Repositori</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Ringkasan Profesional -->
+    <section>
+      <div class="section-title">Ringkasan Profesional</div>
+      <p class="summary-text">
+        Insinyur Teknis dan lulusan Universitas AMIKOM Yogyakarta yang memadukan keahlian fundamental rekayasa jaringan komputer, implementasi tema web frontend tingkat produksi, dan arsitektur sistem kecerdasan buatan (AI) otonom. Tersertifikasi resmi secara lengkap pada <strong>Trilogi Cisco CCNA (ENSA, SRWE, ITN)</strong> dan <strong>Cisco Network Security</strong>, serta berprestasi nasional sebagai <strong>Juara 2 Kompetisi Jaringan Komputer Nasional Digination Fest 2024</strong> (Dirkominfo PPI Dunia). Berpengalaman di agensi <strong>Nozaracy Studio</strong> menjalankan *playbook delivery* siklus penuh (mulai dari pemetaan desain token Figma hingga implementasi tema kustom WordPress PHP dan Shopify Liquid, pengujian responsif multi-viewport, dan audit performa Core Web Vitals), serta operasional pemeliharaan infrastruktur TI korporat di <strong>PT Sangsaka Surya Karunia</strong>. Terbukti piawai membangun agen keamanan siber otonom (LangGraph, isolasi biner keamanan di Docker, Amazon Bedrock, dan GraphRAG) dengan standar keandalan tinggi dan arsitektur terstruktur.
+      </p>
+    </section>
+
+    <!-- Keahlian Teknis & Kompetensi -->
+    <section>
+      <div class="section-title">Keahlian Teknis &amp; Kompetensi Inti</div>
+      <div class="skills-block">
+        <div class="skills-label">Jaringan &amp; Infrastruktur:</div>
+        <div class="skills-value">Cisco IOS, Routing &amp; Switching (OSPFv2, Multi-VLAN, STP, EtherChannel), Cisco ASA Firewall, Site-to-Site IPsec VPN, Zone-Based Policy, Diagnostik Perangkat Keras Enterprise, TCP/IP, Subnetting.</div>
+
+        <div class="skills-label">Keamanan Siber &amp; Pentest:</div>
+        <div class="skills-value">Penilaian Kerentanan Jaringan (Vulnerability Assessment), Perangkat Uji Keamanan (Nmap, Nuclei, Ffuf, Sqlmap), Access Control Lists (ACLs), AAA, CTF Challenge Solving, Isolasi Lingkungan Docker.</div>
+
+        <div class="skills-label">Rekayasa Tema &amp; Frontend:</div>
+        <div class="skills-value">Pengembangan Tema Kustom WordPress (PHP, Hooks/Filters), Tema Kustom Shopify (Liquid, Sections/Blocks), Semantic HTML5, CSS3, Modern JavaScript (ES6+), Figma Token Mapping, Optimasi Core Web Vitals (LCP, CLS, INP).</div>
+
+        <div class="skills-label">Arsitektur AI &amp; Sistem:</div>
+        <div class="skills-value">Python, LangGraph StateGraph, Orkestrasi Multi-Agen, Amazon Bedrock Multi-Model Routing, GraphRAG 3-Tier Memory (Qdrant, Neo4j, PostgreSQL), Celery Workers, Docker Containerization, IndoBERT NLP.</div>
+
+        <div class="skills-label">Perangkat Kerja &amp; QA:</div>
+        <div class="skills-value">Git/GitHub, Linux/UNIX, Bash Scripting, Postman, Automasi Pengujian Playwright, QA Responsif Lintas-Peramban (Multi-Viewport).</div>
+      </div>
+    </section>
+
+    <!-- Pengalaman Kerja & Proyek -->
+    <section>
+      <div class="section-title">Pengalaman Kerja &amp; Rekayasa Sistem</div>
+
+      <!-- Nozaracy Studio -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Theme &amp; Frontend Engineer</span> · <span class="exp-company">Nozaracy Studio (Agensi)</span>
+          </div>
+          <div class="exp-date-loc">Freelance · Sekarang | Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Mengeksekusi *playbook delivery* klien siklus penuh: <strong>Discovery</strong> (pemetaan token desain Figma &amp; arsitektur modular), <strong>Implementasi</strong> (tema kustom WordPress PHP &amp; Shopify Liquid), <strong>QA</strong>, dan <strong>Audit Akhir</strong>.</li>
+          <li>Membangun tema kustom WordPress dan Shopify dari awal dengan 0% ketergantungan pada *page-builder bloat*, menjamin kebersihan struktur kode semantik, modularitas tinggi, dan kemudahan pemeliharaan jangka panjang.</li>
+          <li>Memanfaatkan alur kerja AI-accelerated developer pipeline untuk penyusunan komponen cepat, sintesis skema data, dan pengujian kasus batas otomatis guna mempercepat waktu rilis produksi.</li>
+          <li>Melaksanakan audit performa multi-viewport dan tuning Core Web Vitals, secara konsisten mencetak skor Google Lighthouse 90+ pada metrik LCP dan CLS sebelum penyerahan ke klien.</li>
+        </ul>
+      </div>
+
+      <!-- Zandar AI -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">AI Security &amp; Autonomous Systems Engineer</span> · <span class="exp-company">Zandar Platforms</span>
+          </div>
+          <div class="exp-date-loc">Freelance · 2026 | Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Merancang arsitektur <strong>Zandar AI</strong>, sistem pentest otonom berbasis LangGraph StateGraph dengan kendali operator, mengorkestrasi 18+ biner keamanan di dalam container Docker terisolasi.</li>
+          <li>Mengintegrasikan <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet / DeepSeek / Qwen) dilengkapi gerbang otorisasi *human-in-the-loop* demi menjaga keamanan operasional dan efisiensi biaya komputasi.</li>
+          <li>Membangun arsitektur memori jangka panjang <strong>GraphRAG 3-Tier</strong> (vektor Qdrant, graf topologi jalur serangan Neo4j, dan riwayat audit eksekusi PostgreSQL).</li>
+          <li>Mengembangkan pipeline data intelijen <strong>Zandar OSINT</strong> dengan 26 adaptor data, Celery worker asinkron, dan model klasifikasi IndoBERT berakurasi <strong>0.894 F1 Score</strong> pada uji emas NusaX-Senti.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 2 ================= -->
+    <div class="page-break"></div>
+
+    <section>
+      <!-- PT Sangsaka -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Teknisi Dukungan TI (Support Technician)</span> · <span class="exp-company">PT Sangsaka Surya Karunia</span>
+          </div>
+          <div class="exp-date-loc">2020 – 2021 | Yogyakarta, Indonesia</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Memberikan dukungan teknis langsung pada infrastruktur TI korporat, diagnostik perangkat keras, dan *deployment* komputer kerja di lingkungan operasional komersial.</li>
+          <li>Mendiagnosis dan menuntaskan kendala konektivitas multi-VLAN, konfigurasi port switch, serta gangguan perangkat keras di bawah tenggat waktu operasional yang ketat.</li>
+          <li>Mengelola pencatatan inventaris perangkat IT, melaksanakan perawatan preventif berkala, dan mengedukasi pengguna mengenai prosedur keamanan data kantor.</li>
+        </ul>
+      </div>
+
+      <!-- HIMMTEK Cybersecurity -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Anggota Divisi Cybersecurity</span> · <span class="exp-company">HIMMTEK Universitas AMIKOM Yogyakarta</span>
+          </div>
+          <div class="exp-date-loc">2024 – 2025 | Yogyakarta, Indonesia</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Berperan aktif dalam workshop riset kerentanan sistem, kompetisi Capture-The-Flag (CTF), serta simulasi lab keamanan ofensif dan defensif.</li>
+          <li>Membantu penyelenggaraan seminar teknologi kampus, sesi transfer pengetahuan teknis, dan simulasi pertahanan jaringan untuk mahasiswa.</li>
+          <li>Legalitas kepengurusan disahkan melalui Surat Keputusan Organisasi Kemahasiswaan No. 1337/S-KMHS/AMIKOM/VI/2025.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sertifikasi Resmi & Prestasi -->
+    <section>
+      <div class="section-title">
+        <span>Sertifikasi Resmi &amp; Prestasi Kejuaraan</span>
+        <span style="font-size: 7.8pt; color: #64748b; font-weight: 500;">Diverifikasi Digital pada Portofolio Online</span>
+      </div>
+      <div class="cred-grid">
+        <!-- Digination Fest Award -->
+        <div class="cred-item award">
+          <div class="cred-name">
+            <span>Juara 2 Nasional — Networking Competition</span>
+            <span style="color: #c2410c;">★ Juara Nasional</span>
+          </div>
+          <div class="cred-org">Digination Fest 2024 · Dirkominfo PPI Dunia (Tim Netanet)</div>
+          <div class="cred-meta">NO: 081/CERTIFICATE/PPID-KOMINFO/V/2024 · 23 Juni 2024</div>
+        </div>
+
+        <!-- Cisco Network Security -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco Network Security Certified</span>
+            <span style="color: #0284c7;">● Cisco Academy</span>
+          </div>
+          <div class="cred-org">Cisco Networking Academy · ASA, IPsec VPN, AAA, Zone Firewall</div>
+          <div class="cred-meta">KREDENSIAL ID: 22.83.0886 · Terbit: 12 Jan 2026</div>
+        </div>
+
+        <!-- CCNA 3 ENSA -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 3: ENSA</span>
+            <span style="color: #0284c7;">● Cisco Academy</span>
+          </div>
+          <div class="cred-org">Enterprise Networking, Security, &amp; Automation (Kurikulum v7)</div>
+          <div class="cred-meta">OSPFv2 · WAN QoS · Network Automation · Okt 2024</div>
+        </div>
+
+        <!-- CCNA 2 SRWE -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 2: SRWE</span>
+            <span style="color: #0284c7;">● Cisco Academy</span>
+          </div>
+          <div class="cred-org">Switching, Routing, &amp; Wireless Essentials (Kurikulum v7)</div>
+          <div class="cred-meta">VLANs · Inter-VLAN · EtherChannel · Feb 2024</div>
+        </div>
+
+        <!-- CCNA 1 ITN -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 1: ITN</span>
+            <span style="color: #0284c7;">● Cisco Academy</span>
+          </div>
+          <div class="cred-org">Introduction to Networks (Kurikulum v7) · Arsitektur OSI &amp; TCP/IP</div>
+          <div class="cred-meta">Arsitektur IPv4 / IPv6 · Subnetting · Feb 2024</div>
+        </div>
+
+        <!-- TOEFL Prediction -->
+        <div class="cred-item academic">
+          <div class="cred-name">
+            <span>Amikom English Proficiency (Prediksi TOEFL: 453)</span>
+            <span style="color: #7c3aed;">● Intermediate</span>
+          </div>
+          <div class="cred-org">Universitas AMIKOM Yogyakarta · Reading: 32, Struct: 16, List: 24</div>
+          <div class="cred-meta">ID: #AEPT092611555 · Sept 2026 · Berlaku s/d Sept 2027</div>
+        </div>
+
+        <!-- AMICTA 2024 -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Peserta Showcase Kompetisi AMICTA 2024</span>
+            <span style="color: #475569;">● AMIKOM</span>
+          </div>
+          <div class="cred-org">Fakultas Ilmu Komputer Universitas AMIKOM Yogyakarta</div>
+          <div class="cred-meta">NO: 13.129/AMIKOM-FIK/AMICTA/VI/2024 · Juni 2024</div>
+        </div>
+
+        <!-- HIMMTEK SK -->
+        <div class="cred-item academic">
+          <div class="cred-name">
+            <span>SK Pengurus Divisi Cybersecurity</span>
+            <span style="color: #7c3aed;">● Kepemimpinan</span>
+          </div>
+          <div class="cred-org">Himpunan Mahasiswa Teknik Komputer AMIKOM Yogyakarta</div>
+          <div class="cred-meta">NO: 1337/S-KMHS/AMIKOM/VI/2025 · Periode 2024/2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Riwayat Pendidikan -->
+    <section>
+      <div class="section-title">Riwayat Pendidikan</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Universitas AMIKOM Yogyakarta</div>
+          <div class="edu-inst">Sarjana Komputer (S1 Teknik Komputer) · NIM: 22.83.0886</div>
+        </div>
+        <div class="edu-right">
+          <div>Yogyakarta, Indonesia</div>
+          <div>2022 – 2026 (Lulus)</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">SMK Negeri 1 Pleret</div>
+          <div class="edu-inst">Pendidikan Menengah Kejuruan — Teknik Komputer dan Jaringan (TKJ)</div>
+        </div>
+        <div class="edu-right">
+          <div>Bantul, Yogyakarta</div>
+          <div>2018 – 2021</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HALAMAN 3: LAMPIRAN PORTOFOLIO PROYEK & ARSITEKTUR ================= -->
+    <div class="page-break"></div>
+
+    <div class="showcase-header">
+      <div>
+        <h2>Lampiran Portofolio: Showcase Proyek &amp; Arsitektur Sistem</h2>
+        <div class="showcase-subtitle">Penjelasan mendalam arsitektur teknis, sistem agen AI otonom, dan rekayasa tema tingkat produksi.</div>
+      </div>
+      <div class="showcase-badge">Lampiran Portofolio Teknis</div>
+    </div>
+
+    <!-- Proyek 1: Zandar AI -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">1. Zandar AI — Platform Keamanan AI &amp; Pentest Otonom Berbasis Multi-Agen</span>
+        <span class="project-category">AI Cybersecurity · Multi-Agent System</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            Sistem pengujian keamanan siber dan asesmen kerentanan otomatis yang diawasi oleh operator manusia (*operator-supervised*). Dibangun di atas fondasi arsitektur <strong>LangGraph StateGraph</strong> yang mengorkestrasi <strong>18+ biner keamanan</strong> (Nmap, Nuclei, Ffuf, Sqlmap, Httpx, Naabu, Subfinder, Hydra) yang diisolasi di dalam container Docker runtime secara aman.
+          </p>
+          <p>
+            Dilengkapi <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet untuk sintesis jalur eksploitasi dan DeepSeek/Qwen untuk generasi skrip), memori jangka panjang <strong>GraphRAG 3-Tier</strong> (vektor Qdrant + graf topologi relasi infrastruktur Neo4j + riwayat audit PostgreSQL), serta gerbang pengesahan <strong>human-in-the-loop</strong> untuk tindakan berisiko tinggi.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">LangGraph</span>
+            <span class="tech-pill">Docker (18+ Security Binaries)</span>
+            <span class="tech-pill">Amazon Bedrock</span>
+            <span class="tech-pill">GraphRAG (Qdrant+Neo4j)</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Human-in-the-Loop</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Repositori Kode Sumber:</strong>
+            <a href="https://github.com/Fenrir717/AI-Pentest-Platform" target="_blank">github.com/Fenrir717/AI-Pentest-Platform</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="experience-03.webp" alt="Diagram Arsitektur Zandar AI" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyek 2: Zandar OSINT -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">2. Zandar OSINT — Mesin Intelijen Sumber Terbuka &amp; Verifikasi Fakta Multitier</span>
+        <span class="project-category">Data Engineering · NLP Intelligence</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            Platform intelijen data sumber terbuka dan verifikasi fakta skala enterprise. Mengimplementasikan <strong>26 adaptor data ingestion</strong> lintas 3 tingkatan (RSS feeds, analitik berita global GDELT, YouTube Data API, ulasan Google Play Store, saluran publik Telegram, serta arsip Wayback Machine) yang dijalankan oleh kluster pekerja terdistribusi <strong>Celery &amp; Redis</strong>.
+          </p>
+          <p>
+            Menerapkan model pemrosesan bahasa alami (NLP) <strong>IndoBERT yang di-fine-tune</strong> khusus untuk analisis sentimen &amp; klasifikasi bahasa Indonesia dengan skor benchmark <strong>0.894 F1 Score</strong> pada gold set NusaX-Senti. Terintegrasi dengan pipeline otomatisasi verifikasi klaim data resmi pemerintah (BPS &amp; BMKG).
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">26 Data Adapters</span>
+            <span class="tech-pill">IndoBERT (0.894 F1)</span>
+            <span class="tech-pill">Celery Workers</span>
+            <span class="tech-pill">Redis</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">Verifikasi BPS &amp; BMKG</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Repositori Kode Sumber:</strong>
+            <a href="https://github.com/Fenrir717/Zandar-OSINT-Intel" target="_blank">github.com/Fenrir717/Zandar-OSINT-Intel</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="venture-02.webp" alt="Ingestion Grid Zandar OSINT" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyek 3: Nozaracy Studio -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">3. Nozaracy Studio — Rekayasa Tema Kustom dari Desain Figma ke Shopify &amp; WordPress</span>
+        <span class="project-category">Theme Engineering · Web Performance</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            *Playbook delivery* agensi rekayasa tema web komersial berkinerja tinggi. Menerjemahkan sistem token desain Figma ke dalam basis kode kustom modular dan bersih untuk <strong>WordPress (arsitektur tema PHP, hooks kustom, custom post types)</strong> serta <strong>Shopify (arsitektur tema Liquid, modular Sections/Blocks)</strong> dengan <strong>0% ketergantungan pada page builder berat</strong>.
+          </p>
+          <p>
+            Menggunakan alur kerja berbantuan AI untuk penyusunan cepat komponen frontend dan pembuatan kasus uji QA. Teruji secara ketat melalui audit performa <strong>Core Web Vitals</strong> dan Playwright otomatis, secara konsisten mencetak skor <strong>LCP &lt; 2.0s, CLS 0</strong>, dan <strong>Lighthouse 90+</strong> sebelum serah-terima ke klien.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Figma Token Mapping</span>
+            <span class="tech-pill">WordPress (PHP)</span>
+            <span class="tech-pill">Shopify (Liquid)</span>
+            <span class="tech-pill">Core Web Vitals (LCP/CLS)</span>
+            <span class="tech-pill">Lighthouse 90+</span>
+            <span class="tech-pill">Playwright QA</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Portofolio Live &amp; Hasil Implementasi:</strong>
+            <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="experience-frontend.webp" alt="Diagram Alur Rekayasa Tema Nozaracy Studio" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Showcase Footer -->
+    <div class="showcase-footer">
+      <div><strong>Kandidat:</strong> Muhammad Nur Haqiqi · S1 Teknik Komputer Universitas AMIKOM Yogyakarta</div>
+      <div><strong>Verifikasi Online:</strong> <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a> · <strong>GitHub:</strong> <a href="https://github.com/Fenrir717" target="_blank">github.com/Fenrir717</a></div>
+    </div>
+
+  </div>
+</body>
+</html>

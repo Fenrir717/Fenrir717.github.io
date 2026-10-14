@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Muhammad Nur Haqiqi — Curriculum Vitae &amp; Project Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4;
+      margin: 10mm 12mm 10mm 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #1e293b;
+      background: #ffffff;
+      line-height: 1.42;
+      font-size: 9pt;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    a {
+      color: #0f172a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd5e1;
+      transition: border-color 0.2s;
+    }
+    a:hover {
+      border-color: #0f172a;
+    }
+    .cv-container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 8pt;
+      margin-bottom: 10pt;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12pt;
+    }
+    .name-col {
+      flex: 1;
+    }
+    .name-col h1 {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+    .name-col .headline {
+      font-size: 10pt;
+      font-weight: 600;
+      color: #c2410c;
+      margin-top: 3pt;
+      letter-spacing: -0.01em;
+    }
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4pt 12pt;
+      margin-top: 6pt;
+      font-size: 8.5pt;
+      color: #475569;
+    }
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 3pt;
+    }
+    .contact-item strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+    
+    /* QR Code Widget */
+    .qr-widget {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #cbd5e1;
+      border-radius: 4pt;
+      padding: 4pt 6pt;
+      background: #f8fafc;
+      text-align: center;
+      flex-shrink: 0;
+      width: 78pt;
+    }
+    .qr-img {
+      width: 50pt;
+      height: 50pt;
+      display: block;
+      margin: 0 auto;
+    }
+    .qr-caption {
+      font-size: 5.8pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-top: 2.5pt;
+      line-height: 1.15;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 9pt;
+      page-break-inside: auto;
+    }
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #0f172a;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2.5pt;
+      margin-bottom: 5pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .summary-text {
+      font-size: 8.8pt;
+      color: #334155;
+      text-align: justify;
+      line-height: 1.44;
+    }
+    .summary-text strong {
+      color: #0f172a;
+      font-weight: 600;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 7.5pt;
+      page-break-inside: avoid;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 9pt;
+      margin-bottom: 1.5pt;
+    }
+    .exp-role {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .exp-company {
+      font-weight: 600;
+      color: #c2410c;
+    }
+    .exp-date-loc {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #64748b;
+      text-align: right;
+    }
+    .exp-bullets {
+      list-style-type: none;
+      margin-top: 2pt;
+      padding-left: 0;
+    }
+    .exp-bullets li {
+      position: relative;
+      padding-left: 10pt;
+      margin-bottom: 1.5pt;
+      font-size: 8.6pt;
+      color: #334155;
+      line-height: 1.38;
+    }
+    .exp-bullets li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      top: -0.5pt;
+      color: #c2410c;
+      font-size: 8.5pt;
+    }
+
+    /* Skills Grid */
+    .skills-block {
+      display: grid;
+      grid-template-columns: 135pt 1fr;
+      gap: 3pt 8pt;
+      font-size: 8.5pt;
+      line-height: 1.36;
+      page-break-inside: avoid;
+    }
+    .skills-label {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .skills-value {
+      color: #334155;
+    }
+
+    /* Credentials & Honors */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5pt 10pt;
+      page-break-inside: avoid;
+    }
+    .cred-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-left: 3px solid #0f172a;
+      padding: 4pt 6pt;
+      border-radius: 2pt;
+      font-size: 8.4pt;
+    }
+    .cred-item.award {
+      border-left-color: #c2410c;
+    }
+    .cred-item.academic {
+      border-left-color: #7c3aed;
+    }
+    .cred-name {
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      justify-content: space-between;
+      gap: 4pt;
+    }
+    .cred-org {
+      font-size: 8pt;
+      color: #475569;
+      margin-top: 1pt;
+    }
+    .cred-meta {
+      font-size: 7.5pt;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748b;
+      margin-top: 1.5pt;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 8.8pt;
+      margin-bottom: 4pt;
+      page-break-inside: avoid;
+    }
+    .edu-title {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .edu-inst {
+      color: #475569;
+      font-weight: 500;
+      font-size: 8.4pt;
+    }
+    .edu-right {
+      font-size: 8.2pt;
+      font-weight: 600;
+      color: #64748b;
+      text-align: right;
+    }
+
+    /* PAGE BREAK ENFORCER */
+    .page-break {
+      page-break-before: always;
+      padding-top: 4pt;
+    }
+
+    /* =========================================
+       PAGE 3: PROJECT SHOWCASE STYLING
+       ========================================= */
+    .showcase-header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 6pt;
+      margin-bottom: 10pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .showcase-header h2 {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+    }
+    .showcase-header .showcase-subtitle {
+      font-size: 8.5pt;
+      color: #64748b;
+      margin-top: 2pt;
+    }
+    .showcase-badge {
+      background: #c2410c;
+      color: #ffffff;
+      font-size: 7.5pt;
+      font-weight: 700;
+      padding: 2pt 6pt;
+      border-radius: 2pt;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 4pt;
+      background: #ffffff;
+      padding: 7pt 9pt;
+      margin-bottom: 9pt;
+      page-break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .project-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4pt;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 3pt;
+    }
+    .project-title {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #0f172a;
+    }
+    .project-category {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #c2410c;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .project-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 115pt;
+      gap: 9pt;
+      align-items: center;
+    }
+    .project-desc-col p {
+      font-size: 8.3pt;
+      color: #334155;
+      line-height: 1.38;
+      margin-bottom: 4pt;
+      text-align: justify;
+    }
+    .project-desc-col p strong {
+      color: #0f172a;
+    }
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3pt;
+      margin-top: 4pt;
+    }
+    .tech-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.2pt;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #334155;
+      padding: 1.5pt 4pt;
+      border-radius: 2pt;
+      border: 1px solid #e2e8f0;
+    }
+    .project-link-row {
+      margin-top: 4.5pt;
+      font-size: 8pt;
+      display: flex;
+      align-items: center;
+      gap: 4pt;
+    }
+    .project-link-row a {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #0f172a;
+      border-bottom: 1px solid #0f172a;
+    }
+    .project-thumb-frame {
+      border: 1px solid #cbd5e1;
+      border-radius: 3pt;
+      overflow: hidden;
+      background: #08080a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .project-thumb {
+      width: 100%;
+      height: 72pt;
+      object-fit: cover;
+      display: block;
+    }
+
+    .showcase-footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 6pt;
+      margin-top: 8pt;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 7.8pt;
+      color: #64748b;
+    }
+    .showcase-footer a {
+      color: #0f172a;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- ================= PAGE 1 ================= -->
+    <header>
+      <div class="header-top">
+        <div class="name-col">
+          <h1>Muhammad Nur Haqiqi</h1>
+          <div class="headline">IT Infrastructure Engineer · Frontend &amp; Theme Engineer · AI Security Specialist</div>
+          <div class="contact-grid">
+            <div class="contact-item"><strong>Location:</strong> Yogyakarta, Indonesia (Jl. Imogiri Barat KM 8)</div>
+            <div class="contact-item"><strong>Email:</strong> <a href="mailto:hakiki2917@gmail.com">hakiki2917@gmail.com</a></div>
+            <div class="contact-item"><strong>Phone/WA:</strong> <a href="tel:+62895363206171">+62 895-3632-06171</a></div>
+            <div class="contact-item"><strong>GitHub:</strong> <a href="https://github.com/Fenrir717" target="_blank">github.com/Fenrir717</a></div>
+            <div class="contact-item"><strong>Portfolio:</strong> <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a></div>
+            <div class="contact-item"><strong>English Proficiency:</strong> TOEFL Prediction: 453 (Intermediate)</div>
+          </div>
+        </div>
+        <div class="qr-widget">
+          <img src="qr-portfolio-hd.png" alt="QR Code Digital Portfolio" class="qr-img">
+          <div class="qr-caption">Scan for Digital Portfolio &amp; Repos</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section>
+      <div class="section-title">Professional Summary</div>
+      <p class="summary-text">
+        Technical Engineer and Universitas AMIKOM Yogyakarta graduate combining solid network engineering fundamentals with production frontend theme delivery and autonomous AI systems. Fully certified across the <strong>Cisco CCNA Trilogy (ENSA, SRWE, ITN)</strong> and <strong>Cisco Network Security</strong>, with verified competitive success as <strong>2nd Place Winner at Digination Fest 2024 National Networking Competition</strong> (Dirkominfo PPI Dunia). Experienced in agency environments at <strong>Nozaracy Studio</strong> executing full-cycle delivery playbooks (Discovery to bespoke WordPress PHP &amp; Shopify Liquid implementation, responsive QA, and Core Web Vitals audits), alongside hands-on enterprise IT infrastructure operations at <strong>PT Sangsaka Surya Karunia</strong>. Proven capability in engineering autonomous security agents and AI pipelines (LangGraph, Docker containerized tools, Amazon Bedrock, GraphRAG), maintaining strict architectural rigor and high production standards.
+      </p>
+    </section>
+
+    <!-- Core Technical Skills -->
+    <section>
+      <div class="section-title">Technical Skills &amp; Competencies</div>
+      <div class="skills-block">
+        <div class="skills-label">Networking &amp; Infrastructure:</div>
+        <div class="skills-value">Cisco IOS, Routing &amp; Switching (OSPFv2, Multi-VLAN, STP, EtherChannel), Cisco ASA Firewall, Site-to-Site IPsec VPN, Zone-Based Policy, Enterprise Hardware Diagnostics, TCP/IP, Subnetting.</div>
+
+        <div class="skills-label">Security &amp; Pentesting:</div>
+        <div class="skills-value">Network Vulnerability Assessment, Offensive/Defensive Tooling (Nmap, Nuclei, Ffuf, Sqlmap), Access Control Lists (ACLs), AAA, CTF Challenge Solving, Docker Containerized Tool Isolation.</div>
+
+        <div class="skills-label">Web &amp; Theme Engineering:</div>
+        <div class="skills-value">Custom WordPress (PHP Theme Dev, Hooks/Filters), Custom Shopify (Liquid Theme Dev, Sections/Blocks), Semantic HTML5, CSS3, Modern JavaScript (ES6+), Figma Token Mapping, Core Web Vitals (LCP, CLS, INP) Optimization.</div>
+
+        <div class="skills-label">AI &amp; Systems Architecture:</div>
+        <div class="skills-value">Python, LangGraph StateGraph, Multi-Agent Orchestration, Amazon Bedrock Multi-Model Routing, GraphRAG 3-Tier Memory (Qdrant, Neo4j, PostgreSQL), Celery Workers, Docker Containerization, IndoBERT NLP.</div>
+
+        <div class="skills-label">Developer Tools &amp; QA:</div>
+        <div class="skills-value">Git/GitHub, Linux/UNIX, Bash Scripting, Postman, Playwright Automation, Cross-Browser &amp; Multi-Viewport Responsive QA Testing.</div>
+      </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section>
+      <div class="section-title">Work &amp; Project Experience</div>
+
+      <!-- Nozaracy Studio -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Theme &amp; Frontend Engineer</span> · <span class="exp-company">Nozaracy Studio (Agency)</span>
+          </div>
+          <div class="exp-date-loc">Freelance · Present | Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Executed full-cycle client delivery playbooks spanning <strong>Discovery</strong> (Figma token mapping &amp; component architecture), <strong>Implementation</strong> (bespoke WordPress PHP &amp; Shopify Liquid themes), <strong>QA</strong>, and <strong>Final Audit</strong>.</li>
+          <li>Engineered custom WordPress and Shopify themes from scratch with 0% page-builder bloat, guaranteeing clean semantic markup, modular codebases, and maintainable template structures.</li>
+          <li>Utilized modern AI-accelerated developer pipelines for rapid component scaffolding, schema synthesis, and automated test-case generation, reducing production turn-around time.</li>
+          <li>Conducted multi-viewport cross-browser QA and Core Web Vitals performance tuning, consistently achieving 90+ Lighthouse performance scores across LCP and CLS prior to client handoff.</li>
+        </ul>
+      </div>
+
+      <!-- Zandar AI -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">AI Security &amp; Autonomous Systems Engineer</span> · <span class="exp-company">Zandar Platforms</span>
+          </div>
+          <div class="exp-date-loc">Freelance · 2026 | Remote</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Architected <strong>Zandar AI</strong>, an operator-controlled autonomous pentest system using LangGraph StateGraph, orchestrating 18+ containerized security binaries in isolated Docker runtime containers.</li>
+          <li>Implemented <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet / DeepSeek / Qwen) with human-in-the-loop exploit authorization gates to ensure strict operational safety and token cost optimization.</li>
+          <li>Engineered <strong>GraphRAG 3-Tier Memory</strong> integrating Qdrant (vector similarity), Neo4j (attack path &amp; infrastructure topology), and PostgreSQL (audit logs &amp; execution states).</li>
+          <li>Developed <strong>Zandar OSINT</strong> intelligence pipeline featuring 26 ingestion adapters, Celery async workers, and fine-tuned IndoBERT NLP model achieving a benchmark <strong>0.894 F1 Score</strong> on NusaX-Senti.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 2 ================= -->
+    <div class="page-break"></div>
+
+    <section>
+      <!-- PT Sangsaka -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Support Technician</span> · <span class="exp-company">PT Sangsaka Surya Karunia</span>
+          </div>
+          <div class="exp-date-loc">2020 – 2021 | Yogyakarta, Indonesia</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Delivered hands-on enterprise IT support, hardware diagnostics, and workstation deployment across commercial office environments.</li>
+          <li>Resolved multi-VLAN network connectivity issues, switch port configurations, and peripheral hardware failures under operational time constraints.</li>
+          <li>Maintained structured asset logs, performed preventative hardware maintenance, and trained end-users on workplace security protocols.</li>
+        </ul>
+      </div>
+
+      <!-- HIMMTEK Cybersecurity -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Cybersecurity Division Member</span> · <span class="exp-company">HIMMTEK Universitas AMIKOM Yogyakarta</span>
+          </div>
+          <div class="exp-date-loc">2024 – 2025 | Yogyakarta, Indonesia</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Participated in internal vulnerability research workshops, Capture-The-Flag (CTF) challenges, and hands-on offensive security labs.</li>
+          <li>Assisted in organizing academic tech talks, knowledge transfer sessions, and network defense simulations for student members.</li>
+          <li>Credential verified under official student association decree No. 1337/S-KMHS/AMIKOM/VI/2025.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Verified Credentials & Honors -->
+    <section>
+      <div class="section-title">
+        <span>Verified Certifications &amp; Honors</span>
+        <span style="font-size: 7.8pt; color: #64748b; font-weight: 500;">All Credentials Digitally Verified on Portfolio</span>
+      </div>
+      <div class="cred-grid">
+        <!-- Digination Fest Award -->
+        <div class="cred-item award">
+          <div class="cred-name">
+            <span>2nd Place Winner — Networking</span>
+            <span style="color: #c2410c;">★ National Award</span>
+          </div>
+          <div class="cred-org">Digination Fest 2024 · Dirkominfo PPI Dunia (Team Netanet)</div>
+          <div class="cred-meta">CERT: 081/CERTIFICATE/PPID-KOMINFO/V/2024 · June 23, 2024</div>
+        </div>
+
+        <!-- Cisco Network Security -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco Network Security Certified</span>
+            <span style="color: #0284c7;">● Cisco</span>
+          </div>
+          <div class="cred-org">Cisco Networking Academy · ASA, IPsec VPN, AAA, Zone Firewall</div>
+          <div class="cred-meta">CREDENTIAL ID: 22.83.0886 · Issued: Jan 12, 2026</div>
+        </div>
+
+        <!-- CCNA 3 ENSA -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 3: ENSA</span>
+            <span style="color: #0284c7;">● Cisco</span>
+          </div>
+          <div class="cred-org">Enterprise Networking, Security, &amp; Automation (v7 Curriculum)</div>
+          <div class="cred-meta">OSPFv2 · WAN QoS · Network Automation · Oct 2024</div>
+        </div>
+
+        <!-- CCNA 2 SRWE -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 2: SRWE</span>
+            <span style="color: #0284c7;">● Cisco</span>
+          </div>
+          <div class="cred-org">Switching, Routing, &amp; Wireless Essentials (v7 Curriculum)</div>
+          <div class="cred-meta">VLANs · Inter-VLAN · EtherChannel · Feb 2024</div>
+        </div>
+
+        <!-- CCNA 1 ITN -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>Cisco CCNA 1: ITN</span>
+            <span style="color: #0284c7;">● Cisco</span>
+          </div>
+          <div class="cred-org">Introduction to Networks (v7 Curriculum) · OSI &amp; TCP/IP</div>
+          <div class="cred-meta">IPv4 / IPv6 Architecture · Subnetting · Feb 2024</div>
+        </div>
+
+        <!-- TOEFL Prediction -->
+        <div class="cred-item academic">
+          <div class="cred-name">
+            <span>Amikom English Proficiency (TOEFL: 453)</span>
+            <span style="color: #7c3aed;">● Intermediate</span>
+          </div>
+          <div class="cred-org">Universitas AMIKOM Yogyakarta · Reading: 32, Struct: 16, List: 24</div>
+          <div class="cred-meta">ID: #AEPT092611555 · Sept 2026 · Valid until Sept 2027</div>
+        </div>
+
+        <!-- AMICTA 2024 -->
+        <div class="cred-item">
+          <div class="cred-name">
+            <span>AMICTA 2024 Showcase Participant</span>
+            <span style="color: #475569;">● AMIKOM</span>
+          </div>
+          <div class="cred-org">Fakultas Ilmu Komputer Universitas AMIKOM Yogyakarta</div>
+          <div class="cred-meta">NO: 13.129/AMIKOM-FIK/AMICTA/VI/2024 · June 2024</div>
+        </div>
+
+        <!-- HIMMTEK Decree -->
+        <div class="cred-item academic">
+          <div class="cred-name">
+            <span>Cybersecurity Division Appointment</span>
+            <span style="color: #7c3aed;">● Leadership</span>
+          </div>
+          <div class="cred-org">Himpunan Mahasiswa Teknik Komputer AMIKOM Yogyakarta</div>
+          <div class="cred-meta">NO: 1337/S-KMHS/AMIKOM/VI/2025 · Periode 2024/2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="section-title">Education</div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">Universitas AMIKOM Yogyakarta</div>
+          <div class="edu-inst">Bachelor of Computer Engineering (S1 Teknik Komputer) · NIM: 22.83.0886</div>
+        </div>
+        <div class="edu-right">
+          <div>Yogyakarta, Indonesia</div>
+          <div>2022 – 2026 (Graduate)</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <div>
+          <div class="edu-title">SMK Negeri 1 Pleret</div>
+          <div class="edu-inst">Vocational Diploma in Computer and Network Engineering (Teknik Komputer dan Jaringan / TKJ)</div>
+        </div>
+        <div class="edu-right">
+          <div>Bantul, Yogyakarta</div>
+          <div>2018 – 2021</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAGE 3: PROJECT SHOWCASE & SYSTEM ARCHITECTURE ================= -->
+    <div class="page-break"></div>
+
+    <div class="showcase-header">
+      <div>
+        <h2>Featured Engineering Projects &amp; System Architecture</h2>
+        <div class="showcase-subtitle">Deep-dive into production codebases, multi-agent frameworks, and bespoke theme engineering.</div>
+      </div>
+      <div class="showcase-badge">Project Showcase Addendum</div>
+    </div>
+
+    <!-- Project 1: Zandar AI -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">1. Zandar AI — Autonomous AI Security &amp; Multi-Agent Pentest Platform</span>
+        <span class="project-category">AI Cybersecurity · Multi-Agent System</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            An autonomous, operator-supervised cybersecurity engine designed to run end-to-end vulnerability assessments and authorized penetration testing loops. Built on a modular <strong>LangGraph StateGraph</strong> architecture that coordinates <strong>18+ containerized security binaries</strong> (nmap, nuclei, ffuf, sqlmap, httpx, naabu, subfinder, hydra) isolated inside secure Docker runtime containers.
+          </p>
+          <p>
+            Features <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet for tactical attack graph synthesis, DeepSeek/Qwen for script generation), backed by a <strong>3-tier GraphRAG long-term memory</strong> (Qdrant vector similarity + Neo4j infrastructure attack path graphs + PostgreSQL execution traces) with strict <strong>human-in-the-loop exploit authorization gates</strong>.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">LangGraph</span>
+            <span class="tech-pill">Docker (18+ Binaries)</span>
+            <span class="tech-pill">Amazon Bedrock</span>
+            <span class="tech-pill">GraphRAG (Qdrant+Neo4j)</span>
+            <span class="tech-pill">FastAPI</span>
+            <span class="tech-pill">Human-in-the-Loop</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Source Code Repository:</strong>
+            <a href="https://github.com/Fenrir717/AI-Pentest-Platform" target="_blank">github.com/Fenrir717/AI-Pentest-Platform</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="experience-03.webp" alt="Zandar AI Architecture Diagram" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Zandar OSINT -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">2. Zandar OSINT — Multi-Tier Open-Source Intelligence &amp; Verification Engine</span>
+        <span class="project-category">Data Engineering · NLP Intelligence</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            An enterprise-scale open-source intelligence aggregation and fact-checking platform. Implements <strong>26 ingestion data adapters</strong> across 3 tiers (RSS feeds, GDELT global events, YouTube Data API, Google Play Store reviews, public Telegram channels, and Wayback Machine digital archives) running on a distributed <strong>Celery &amp; Redis</strong> worker cluster.
+          </p>
+          <p>
+            Includes a custom fine-tuned <strong>IndoBERT NLP sentiment &amp; classification model</strong> achieving a benchmark <strong>0.894 F1 Score</strong> on the NusaX-Senti gold dataset. Integrated with an automated claim verification pipeline that cross-references extracted claims against official government datasets (BPS &amp; BMKG) for high-confidence intelligence synthesis.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">26 Data Adapters</span>
+            <span class="tech-pill">IndoBERT (0.894 F1)</span>
+            <span class="tech-pill">Celery Workers</span>
+            <span class="tech-pill">Redis</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">BPS/BMKG Verification</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Source Code Repository:</strong>
+            <a href="https://github.com/Fenrir717/Zandar-OSINT-Intel" target="_blank">github.com/Fenrir717/Zandar-OSINT-Intel</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="venture-02.webp" alt="Zandar OSINT Intelligence Ingestion" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: Nozaracy Studio -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">3. Nozaracy Studio — Figma to Shopify &amp; WordPress Bespoke Theme Engineering</span>
+        <span class="project-category">Theme Engineering · Web Performance</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            Full-cycle bespoke theme engineering agency playbook delivering high-performance e-commerce and corporate websites. Translates complex Figma design tokens into clean, modular, and maintainable codebases for both <strong>WordPress (PHP theme architecture, hooks, custom post types)</strong> and <strong>Shopify (Liquid theme architecture, custom sections, blocks)</strong> with <strong>0% visual page-builder bloat</strong>.
+          </p>
+          <p>
+            Leverages modern AI-assisted workflows for rapid component scaffolding, schema synthesis, and automated test-case generation. Rigorously verified via automated multi-viewport QA (Playwright) and deep <strong>Core Web Vitals</strong> optimization, consistently securing <strong>LCP &lt; 2.0s, CLS 0</strong>, and <strong>90+ Lighthouse Performance</strong> prior to client delivery.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Figma Token Mapping</span>
+            <span class="tech-pill">WordPress (PHP)</span>
+            <span class="tech-pill">Shopify (Liquid)</span>
+            <span class="tech-pill">Core Web Vitals (LCP/CLS)</span>
+            <span class="tech-pill">Lighthouse 90+</span>
+            <span class="tech-pill">Playwright QA</span>
+          </div>
+          <div class="project-link-row">
+            <strong>Live Portfolio &amp; Deliverables:</strong>
+            <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="experience-frontend.webp" alt="Nozaracy Studio Theme Delivery Architecture" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Showcase Footer -->
+    <div class="showcase-footer">
+      <div><strong>Candidate:</strong> Muhammad Nur Haqiqi · S1 Teknik Komputer Universitas AMIKOM Yogyakarta</div>
+      <div><strong>Live Verification:</strong> <a href="https://fenrir717.github.io" target="_blank">fenrir717.github.io</a> · <strong>GitHub:</strong> <a href="https://github.com/Fenrir717" target="_blank">github.com/Fenrir717</a></div>
+    </div>
+
+  </div>
+</body>
+</html>
