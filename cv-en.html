@@ -511,7 +511,7 @@
           <li>Engineered <strong>GraphRAG 3-Tier Memory</strong> integrating Qdrant (vector similarity), Neo4j (attack path &amp; infrastructure topology), and PostgreSQL (audit logs &amp; execution states).</li>
           <li>Conducted an <strong>11-agent adversarially-verified self-security-audit</strong> (5 dimensions) surfacing 34 ranked findings; resolved and re-verified 10, including both Critical-severity issues, with the remainder tracked by priority in a living hardening report.</li>
           <li>Shipped a <strong>bug-bounty submission mode</strong> (HackerOne/Bugcrowd-ready exports, out-of-scope governance enforcement, duplicate-report detection) and made the full stack <strong>Docker-deployable with one command</strong>.</li>
-          <li>Developed <strong>Zandar OSINT</strong> intelligence pipeline featuring 26 ingestion adapters, Celery async workers, and fine-tuned IndoBERT NLP model achieving a benchmark <strong>0.894 F1 Score</strong> on NusaX-Senti.</li>
+          <li>Developed <strong>Zandar OSINT</strong> intelligence pipeline featuring 26 ingestion adapters, Celery async workers, and an IndoBERT hybrid classifier (sentiment + lexicon) integrated and validated at <strong>0.894 F1 Score</strong> against the NusaX-Senti gold set.</li>
         </ul>
       </div>
     </section>
@@ -728,7 +728,7 @@
             An enterprise-scale open-source intelligence aggregation and fact-checking platform. Implements <strong>26 ingestion data adapters</strong> across 3 tiers (RSS feeds, GDELT global events, YouTube Data API, Google Play Store reviews, public Telegram channels, and Wayback Machine digital archives) running on a distributed <strong>Celery &amp; Redis</strong> worker cluster.
           </p>
           <p>
-            Includes a custom fine-tuned <strong>IndoBERT NLP sentiment &amp; classification model</strong> achieving a benchmark <strong>0.894 F1 Score</strong> on the NusaX-Senti gold dataset. Integrated with an automated claim verification pipeline that cross-references extracted claims against official government datasets (BPS &amp; BMKG) for high-confidence intelligence synthesis.
+            Includes an <strong>IndoBERT hybrid sentiment &amp; classification pipeline</strong> (RoBERTa-based open-source models, integrated and benchmarked against a human-labeled gold set), validated at <strong>0.894 F1 Score</strong> on NusaX-Senti. Integrated with an automated claim verification pipeline that cross-references extracted claims against official government datasets (BPS &amp; BMKG) for high-confidence intelligence synthesis.
           </p>
           <div class="tech-pills">
             <span class="tech-pill">Python</span>

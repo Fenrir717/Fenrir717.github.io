@@ -728,7 +728,7 @@
             Platform intelijen data sumber terbuka dan verifikasi fakta skala enterprise. Mengimplementasikan <strong>26 adaptor data ingestion</strong> lintas 3 tingkatan (RSS feeds, analitik berita global GDELT, YouTube Data API, ulasan Google Play Store, saluran publik Telegram, serta arsip Wayback Machine) yang dijalankan oleh kluster pekerja terdistribusi <strong>Celery &amp; Redis</strong>.
           </p>
           <p>
-            Menerapkan model pemrosesan bahasa alami (NLP) <strong>IndoBERT yang di-fine-tune</strong> khusus untuk analisis sentimen &amp; klasifikasi bahasa Indonesia dengan skor benchmark <strong>0.894 F1 Score</strong> pada gold set NusaX-Senti. Terintegrasi dengan pipeline otomatisasi verifikasi klaim data resmi pemerintah (BPS &amp; BMKG).
+            Menerapkan pipeline klasifikasi hibrida <strong>IndoBERT</strong> (model RoBERTa open-source, diintegrasikan dan divalidasi terhadap gold set berlabel manusia) khusus untuk analisis sentimen &amp; klasifikasi bahasa Indonesia, tervalidasi pada skor <strong>0.894 F1 Score</strong> di gold set NusaX-Senti. Terintegrasi dengan pipeline otomatisasi verifikasi klaim data resmi pemerintah (BPS &amp; BMKG).
           </p>
           <div class="tech-pills">
             <span class="tech-pill">Python</span>
