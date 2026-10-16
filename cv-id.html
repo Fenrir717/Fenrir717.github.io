@@ -509,6 +509,8 @@
           <li>Merancang arsitektur <strong>Zandar AI</strong>, sistem pentest otonom berbasis LangGraph StateGraph dengan kendali operator, mengorkestrasi 18+ biner keamanan di dalam container Docker terisolasi.</li>
           <li>Mengintegrasikan <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet / DeepSeek / Qwen) dilengkapi gerbang otorisasi *human-in-the-loop* demi menjaga keamanan operasional dan efisiensi biaya komputasi.</li>
           <li>Membangun arsitektur memori jangka panjang <strong>GraphRAG 3-Tier</strong> (vektor Qdrant, graf topologi jalur serangan Neo4j, dan riwayat audit eksekusi PostgreSQL).</li>
+          <li>Melakukan <strong>audit keamanan mandiri oleh 11 agen</strong> dengan verifikasi adversarial (5 dimensi), menghasilkan 34 temuan berperingkat; memperbaiki dan memverifikasi ulang 10 temuan termasuk kedua temuan Critical, sisanya dilacak berdasarkan prioritas dalam laporan hardening yang terus diperbarui.</li>
+          <li>Membangun <strong>mode pengajuan bug-bounty</strong> (ekspor siap HackerOne/Bugcrowd, penegakan out-of-scope, deteksi laporan duplikat) dan membuat seluruh stack <strong>dapat di-deploy via Docker dengan satu perintah</strong>.</li>
           <li>Mengembangkan pipeline data intelijen <strong>Zandar OSINT</strong> dengan 26 adaptor data, Celery worker asinkron, dan model klasifikasi IndoBERT berakurasi <strong>0.894 F1 Score</strong> pada uji emas NusaX-Senti.</li>
         </ul>
       </div>
@@ -688,6 +690,9 @@
           <p>
             Dilengkapi <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet untuk sintesis jalur eksploitasi dan DeepSeek/Qwen untuk generasi skrip), memori jangka panjang <strong>GraphRAG 3-Tier</strong> (vektor Qdrant + graf topologi relasi infrastruktur Neo4j + riwayat audit PostgreSQL), serta gerbang pengesahan <strong>human-in-the-loop</strong> untuk tindakan berisiko tinggi.
           </p>
+          <p>
+            Diperkuat melalui <strong>audit keamanan mandiri oleh 11 agen pada 5 dimensi</strong> (prompt-injection, rantai pasok, kebocoran rahasia, otorisasi, agent-egress) yang disintesis lewat verifikasi adversarial — menghasilkan 34 temuan berperingkat, 10 di antaranya telah diperbaiki dan diverifikasi ulang termasuk kedua temuan Critical, sisanya dilacak berdasarkan prioritas. Dilengkapi <strong>mode pengajuan bug-bounty</strong> (ekspor siap-kirim HackerOne/Bugcrowd yang memisahkan temuan tervalidasi-oracle dari yang belum, gerbang penegakan out-of-scope, dan pemeriksaan deduplikasi Hacktivity), serta sepenuhnya <strong>dapat di-deploy via Docker</strong> — satu perintah <code>docker compose up</code> menjalankan backend, frontend, dan lima datastore hingga status sehat terverifikasi.
+          </p>
           <div class="tech-pills">
             <span class="tech-pill">Python</span>
             <span class="tech-pill">LangGraph</span>
@@ -696,6 +701,9 @@
             <span class="tech-pill">GraphRAG (Qdrant+Neo4j)</span>
             <span class="tech-pill">FastAPI</span>
             <span class="tech-pill">Human-in-the-Loop</span>
+            <span class="tech-pill">Audit Keamanan Mandiri (34 Temuan)</span>
+            <span class="tech-pill">Ekspor Bug-Bounty (HackerOne/Bugcrowd)</span>
+            <span class="tech-pill">Deploy Docker Satu Perintah</span>
           </div>
           <div class="project-link-row">
             <strong>Repositori Kode Sumber:</strong>

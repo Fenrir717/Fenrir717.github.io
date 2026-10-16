@@ -509,6 +509,8 @@
           <li>Architected <strong>Zandar AI</strong>, an operator-controlled autonomous pentest system using LangGraph StateGraph, orchestrating 18+ containerized security binaries in isolated Docker runtime containers.</li>
           <li>Implemented <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet / DeepSeek / Qwen) with human-in-the-loop exploit authorization gates to ensure strict operational safety and token cost optimization.</li>
           <li>Engineered <strong>GraphRAG 3-Tier Memory</strong> integrating Qdrant (vector similarity), Neo4j (attack path &amp; infrastructure topology), and PostgreSQL (audit logs &amp; execution states).</li>
+          <li>Conducted an <strong>11-agent adversarially-verified self-security-audit</strong> (5 dimensions) surfacing 34 ranked findings; resolved and re-verified 10, including both Critical-severity issues, with the remainder tracked by priority in a living hardening report.</li>
+          <li>Shipped a <strong>bug-bounty submission mode</strong> (HackerOne/Bugcrowd-ready exports, out-of-scope governance enforcement, duplicate-report detection) and made the full stack <strong>Docker-deployable with one command</strong>.</li>
           <li>Developed <strong>Zandar OSINT</strong> intelligence pipeline featuring 26 ingestion adapters, Celery async workers, and fine-tuned IndoBERT NLP model achieving a benchmark <strong>0.894 F1 Score</strong> on NusaX-Senti.</li>
         </ul>
       </div>
@@ -688,6 +690,9 @@
           <p>
             Features <strong>Amazon Bedrock Multi-Model Routing</strong> (Claude 3.5 Sonnet for tactical attack graph synthesis, DeepSeek/Qwen for script generation), backed by a <strong>3-tier GraphRAG long-term memory</strong> (Qdrant vector similarity + Neo4j infrastructure attack path graphs + PostgreSQL execution traces) with strict <strong>human-in-the-loop exploit authorization gates</strong>.
           </p>
+          <p>
+            Hardened through an <strong>11-agent, 5-dimension self-security-audit</strong> (prompt-injection, supply-chain, secret-leakage, authorization, agent-egress) synthesized via adversarial verification — 34 ranked findings surfaced, 10 resolved and re-verified including both Critical-severity issues, the remainder tracked by priority in a living report. Ships a <strong>bug-bounty submission mode</strong> (HackerOne/Bugcrowd-ready exports separating oracle-verified findings from unverified ones, an out-of-scope governance gate, and a Hacktivity duplicate-detection check), and is fully <strong>Docker-deployable</strong> — one <code>docker compose up</code> brings the backend, frontend, and five datastores to a verified healthy state.
+          </p>
           <div class="tech-pills">
             <span class="tech-pill">Python</span>
             <span class="tech-pill">LangGraph</span>
@@ -696,6 +701,9 @@
             <span class="tech-pill">GraphRAG (Qdrant+Neo4j)</span>
             <span class="tech-pill">FastAPI</span>
             <span class="tech-pill">Human-in-the-Loop</span>
+            <span class="tech-pill">Self-Audited Security (34 Findings)</span>
+            <span class="tech-pill">Bug-Bounty Export (HackerOne/Bugcrowd)</span>
+            <span class="tech-pill">One-Command Docker Deploy</span>
           </div>
           <div class="project-link-row">
             <strong>Source Code Repository:</strong>
