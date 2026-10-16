@@ -408,6 +408,44 @@
       display: block;
     }
 
+    .live-gallery-label {
+      font-size: 7.2pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 5pt 0 3pt;
+    }
+    .live-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5pt;
+      margin-bottom: 4pt;
+    }
+    .live-gallery figure {
+      margin: 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 3pt;
+      overflow: hidden;
+      background: #08080a;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+    }
+    .live-gallery img {
+      width: 100%;
+      height: 58pt;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+    .live-gallery figcaption {
+      font-size: 6.4pt;
+      color: #475569;
+      text-align: center;
+      padding: 1.5pt 2pt;
+      border-top: 1px solid #e2e8f0;
+      background: #f8fafc;
+    }
+
     .showcase-footer {
       border-top: 1px solid #e2e8f0;
       padding-top: 6pt;
@@ -713,6 +751,25 @@
         <div class="project-thumb-frame">
           <img src="experience-03.webp" alt="Zandar AI Architecture Diagram" class="project-thumb">
         </div>
+      </div>
+      <div class="live-gallery-label">Live walkthrough — real platform, real data (not mockups)</div>
+      <div class="live-gallery">
+        <figure>
+          <img src="zandar-ai-screenshots/zandar-ai-dashboard.jpg" alt="Zandar AI dashboard showing 84 scans and 223 findings">
+          <figcaption>Dashboard — live metrics</figcaption>
+        </figure>
+        <figure>
+          <img src="zandar-ai-screenshots/zandar-ai-owasp-mitre-coverage.jpg" alt="OWASP Top 10 and MITRE ATT&amp;CK coverage with verified-finding ratios">
+          <figcaption>OWASP/ATT&amp;CK coverage, verified</figcaption>
+        </figure>
+        <figure>
+          <img src="zandar-ai-screenshots/zandar-ai-findings-table.jpg" alt="Findings table with severity and status badges">
+          <figcaption>Findings queue</figcaption>
+        </figure>
+        <figure>
+          <img src="zandar-ai-screenshots/zandar-ai-finding-detail-oracle.jpg" alt="Finding detail showing a deterministic-oracle reproduction command for an LFI vulnerability">
+          <figcaption>Deterministic PoC reproduction</figcaption>
+        </figure>
       </div>
     </div>
 
