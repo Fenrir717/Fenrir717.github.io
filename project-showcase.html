@@ -97,6 +97,8 @@
       padding: 7pt 9pt;
       margin-bottom: 8.5pt;
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
     .project-top-row {
       display: flex;
@@ -367,6 +369,42 @@
         </div>
         <div class="project-thumb-frame">
           <img src="experience-frontend.webp" alt="Nozaracy Studio Theme Delivery Architecture" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 4: Linux Server Security & System Administration -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">4. Multi-VM Linux Security Hardening &amp; Server Infrastructure Runbooks</span>
+        <span class="project-category">Linux SysAdmin · Network Security · Observability</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            <strong>ProjectMen (3-VM Segmented Server Security Architecture — Team Lead &amp; System Security Administrator):</strong> Designed and deployed a defense-in-depth 3-VM Linux infrastructure isolating <strong>VM1 (Honeypot — <code>192.168.20.1</code>)</strong>, <strong>VM2 (Main Production Server — <code>192.168.20.2</code> / <code>10.10.10.1</code>)</strong>, and <strong>VM3 (Air-Gapped Backup Server — <code>10.10.10.2</code>)</strong>. Configured <strong>iptables DNAT</strong> rules to transparently trap and redirect unauthorized SSH port-22 probes to the Honeypot, hardened WordPress &amp; Roundcube Mail Server behind <strong>UFW</strong>, <strong>ModSecurity2 WAF</strong>, and SSL/TLS (HTTPS 443, SMTPS 465, IMAPS 993), locked administrative SSH behind <strong>Port Knocking (<code>knockd</code>) + OpenVPN (<code>tap0</code>)</strong>, and orchestrated centralized log telemetry (<strong>Rsyslog + Promtail + Loki + Grafana</strong>) with automated air-gapped <strong>rsync + crontab</strong> backups.
+          </p>
+          <p>
+            <strong>OS Server System Administration Runbook (8 Core Linux Services):</strong> Authored comprehensive end-to-end installation, configuration, and troubleshooting SOP documentation across 8 foundational Linux server services: <strong>OpenSSH</strong> (custom port &amp; daemon hardening), <strong>ISC DHCP Server</strong>, <strong>FTP &amp; Samba</strong> file sharing, <strong>Apache2/Nginx</strong> virtual hosts, <strong>BIND9 DNS</strong> authoritative zones, <strong>MySQL/MariaDB</strong> relational database administration, <strong>Postfix/Dovecot</strong> mail transfer, and system resource monitoring.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Ubuntu / Debian Server</span>
+            <span class="tech-pill">iptables DNAT &amp; UFW</span>
+            <span class="tech-pill">ModSecurity2 WAF</span>
+            <span class="tech-pill">Port Knocking &amp; OpenVPN</span>
+            <span class="tech-pill">Grafana · Loki · Promtail</span>
+            <span class="tech-pill">Rsync &amp; Crontab Backup</span>
+            <span class="tech-pill">BIND9 · DHCP · Samba · MySQL</span>
+          </div>
+          <div class="project-links">
+            <strong>Repositories:</strong>
+            <a href="https://github.com/Fenrir717/Projectman" target="_blank">github.com/Fenrir717/Projectman</a>
+            <span>·</span>
+            <a href="https://github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886" target="_blank">github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="projectman-topology.webp" alt="3-VM Segmented Linux Server Security Topology" class="project-thumb">
         </div>
       </div>
     </div>

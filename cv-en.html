@@ -836,6 +836,41 @@
       </div>
     </div>
 
+    <!-- Project 4: Multi-VM Linux Security & Server Administration -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">4. Multi-VM Linux Security Hardening &amp; Server Infrastructure Runbooks</span>
+        <span class="project-category">Linux SysAdmin · Network Security</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            Served as <strong>Team Lead &amp; System Security Administrator</strong> in architecting a segmented 3-VM Linux server topology (<strong>ProjectMen</strong>): <strong>VM1 Honeypot</strong> (<code>192.168.20.1</code>) using <code>iptables</code> DNAT rules to trap unauthorized SSH Port 22 traffic targeting production; <strong>VM2 Main Server</strong> (<code>192.168.20.2</code>) running WordPress &amp; Roundcube Mail hardened with <strong>UFW, ModSecurity2 WAF, SSL/TLS (HTTPS 443, SMTPS 465, IMAPS 993)</strong>, and <strong>Port Knocking (<code>knockd</code>) + OpenVPN (<code>20.10.20.0/24</code>)</strong> for administrative SSH; and <strong>VM3 Air-Gapped Backup Server</strong> (<code>10.10.10.2</code>) receiving automated scheduled <code>rsync</code>/<code>crontab</code> backups over an isolated private segment, monitored centrally via <strong>Rsyslog, Promtail, Loki &amp; Grafana</strong>.
+          </p>
+          <p>
+            Authored comprehensive step-by-step Linux System Administration runbooks (<strong>OS Server System Admin</strong>) covering installation, hardening, and verification of 8 core enterprise services: <strong>OpenSSH</strong> (custom port &amp; access policies), <strong>ISC DHCP Server</strong>, <strong>FTP &amp; Samba File Server</strong>, <strong>Apache2/Nginx Web Server</strong>, <strong>BIND9 DNS Server</strong>, <strong>MySQL/MariaDB Database</strong>, <strong>Postfix/Dovecot Mail Server</strong>, and service monitoring.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Linux System Administration</span>
+            <span class="tech-pill">iptables &amp; UFW</span>
+            <span class="tech-pill">ModSecurity2 WAF</span>
+            <span class="tech-pill">OpenVPN &amp; Port Knocking</span>
+            <span class="tech-pill">Rsyslog + Loki + Grafana</span>
+            <span class="tech-pill">DHCP / DNS / Samba / FTP / Mail</span>
+            <span class="tech-pill">rsync &amp; Crontab Backup</span>
+          </div>
+          <div class="project-link-row" style="flex-wrap: wrap; gap: 3pt 6pt;">
+            <strong>Repositories:</strong>
+            <a href="https://github.com/Fenrir717/Projectman" target="_blank">github.com/Fenrir717/Projectman</a> ·
+            <a href="https://github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886" target="_blank">github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="projectman-topology.webp" alt="3-VM Segmented Linux Security Topology" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
     <!-- Showcase Footer -->
     <div class="showcase-footer">
       <div><strong>Candidate:</strong> Muhammad Nur Haqiqi · S1 Teknik Komputer Universitas AMIKOM Yogyakarta</div>

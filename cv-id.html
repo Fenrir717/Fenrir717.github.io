@@ -816,7 +816,7 @@
       <div class="project-content-grid">
         <div class="project-desc-col">
           <p>
-            *Playbook delivery* agensi rekayasa tema web komersial berkinerja tinggi. Menerjemahkan sistem token desain Figma ke dalam basis kode kustom modular dan bersih untuk <strong>WordPress (arsitektur tema PHP, hooks kustom, custom post types)</strong> serta <strong>Shopify (arsitektur tema Liquid, modular Sections/Blocks)</strong> dengan <strong>0% ketergantungan pada page builder berat</strong>.
+            <em>Playbook delivery</em> agensi rekayasa tema web komersial berkinerja tinggi. Menerjemahkan sistem token desain Figma ke dalam basis kode kustom modular dan bersih untuk <strong>WordPress (arsitektur tema PHP, hooks kustom, custom post types)</strong> serta <strong>Shopify (arsitektur tema Liquid, modular Sections/Blocks)</strong> dengan <strong>0% ketergantungan pada page builder berat</strong>.
           </p>
           <p>
             Menggunakan alur kerja berbantuan AI untuk penyusunan cepat komponen frontend dan pembuatan kasus uji QA. Teruji secara ketat melalui audit performa <strong>Core Web Vitals</strong> dan Playwright otomatis, secara konsisten mencetak skor <strong>LCP &lt; 2.0s, CLS 0</strong>, dan <strong>Lighthouse 90+</strong> sebelum serah-terima ke klien.
@@ -832,6 +832,41 @@
         </div>
         <div class="project-thumb-frame">
           <img src="experience-frontend.webp" alt="Diagram Alur Rekayasa Tema Nozaracy Studio" class="project-thumb">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyek 4: Arsitektur Keamanan Multi-VM & Administrasi Server Linux -->
+    <div class="project-card">
+      <div class="project-top-row">
+        <span class="project-title">4. Arsitektur Keamanan Server Multi-VM &amp; Runbook Administrasi Sistem Linux</span>
+        <span class="project-category">Linux SysAdmin · Network Security</span>
+      </div>
+      <div class="project-content-grid">
+        <div class="project-desc-col">
+          <p>
+            Berperan sebagai <strong>Ketua Tim &amp; System Security Administrator</strong> dalam merancang topologi keamanan 3 server virtual terisolasi (<strong>ProjectMen</strong>): <strong>VM1 Honeypot</strong> (<code>192.168.20.1</code>) dengan aturan <code>iptables</code> DNAT yang membelokkan trafik ilegal SSH Port 22 ke jebakan Honeypot; <strong>VM2 Server Utama</strong> (<code>192.168.20.2</code>) yang menjalankan Web Server (WordPress) &amp; Mail Server (Roundcube) berlapis <strong>UFW, WAF ModSecurity2, SSL/TLS (HTTPS 443, SMTPS 465, IMAPS 993)</strong>, serta akses SSH tertutup via <strong>Port Knocking (<code>knockd</code>) + OpenVPN (<code>20.10.20.0/24</code>)</strong>; dan <strong>VM3 Server Backup Terisolasi</strong> (<code>10.10.10.2</code>) yang menerima backup otomatis <code>rsync</code>/<code>crontab</code> pada segmen privat serta dimonitor terpusat via <strong>Rsyslog, Promtail, Loki &amp; Grafana</strong>.
+          </p>
+          <p>
+            Menyusun dokumentasi teknis dan SOP operasional lengkap (<strong>OS Server System Admin</strong>) yang mencakup instalasi, konfigurasi, hardening, dan pengujian 8 layanan infrastruktur inti: <strong>OpenSSH Server</strong> (port kustom &amp; pembatasan akses), <strong>ISC DHCP Server</strong>, <strong>FTP &amp; Samba File Server</strong>, <strong>Web Server Apache2/Nginx</strong>, <strong>BIND9 DNS Server</strong>, <strong>Database MySQL/MariaDB</strong>, <strong>Mail Server Postfix/Dovecot</strong>, dan sistem monitoring.
+          </p>
+          <div class="tech-pills">
+            <span class="tech-pill">Linux System Administration</span>
+            <span class="tech-pill">iptables &amp; UFW</span>
+            <span class="tech-pill">ModSecurity2 WAF</span>
+            <span class="tech-pill">OpenVPN &amp; Port Knocking</span>
+            <span class="tech-pill">Rsyslog + Loki + Grafana</span>
+            <span class="tech-pill">DHCP / DNS / Samba / FTP / Mail</span>
+            <span class="tech-pill">rsync &amp; Crontab Backup</span>
+          </div>
+          <div class="project-link-row" style="flex-wrap: wrap; gap: 3pt 6pt;">
+            <strong>Repositori Kode &amp; Dokumentasi:</strong>
+            <a href="https://github.com/Fenrir717/Projectman" target="_blank">github.com/Fenrir717/Projectman</a> ·
+            <a href="https://github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886" target="_blank">github.com/Fenrir717/FINAL-PROJECT-OS-SERVER-SYSTEM-ADMIN---22.83.0886</a>
+          </div>
+        </div>
+        <div class="project-thumb-frame">
+          <img src="projectman-topology.webp" alt="Topologi Keamanan 3-VM Linux Server" class="project-thumb">
         </div>
       </div>
     </div>
